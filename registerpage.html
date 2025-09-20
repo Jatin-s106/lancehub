@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Freelance Hub - Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --primary-light: #a855f7;
+            --primary-dark: #7c3aed;
+            --secondary-color: #f8fafc;
+            --accent-color: #c084fc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --error-color: #ef4444;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #3b1459 0%, #000000 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(192, 132, 252, 0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .registration-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1600px;
+            width: 100%;
+        }
+
+        .registration-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-width: 320px;
+            max-width: 450px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        input.valid {
+            border-color: var(--success-color);
+        }
+
+        input.invalid {
+            border-color: var(--error-color);
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        .success-message {
+            color: var(--success-color);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-top: 0.25rem;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-weak { background: var(--error-color); }
+        .strength-medium { background: var(--warning-color); }
+        .strength-strong { background: var(--success-color); }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .login-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            border-radius: 50px;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toggle-option {
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .toggle-option.active {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .registration-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .registration-card {
+                width: 100%;
+                min-width: unset;
+                padding: 2rem;
+            }
+            
+            .toggle-option {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .registration-card {
+                padding: 1.5rem;
+            }
+            
+            .toggle-option {
+                padding: 0.6rem 1rem;
+            }
+        }
+
+        /* Loading animation for buttons */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Join Freelance Hub</h1>
+    <p class="subtitle">Find perfect projects or talented professionals</p>
+
+    <div class="toggle-container">
+        <div class="toggle-option active" id="freelancer-toggle">👨‍💻 I'm a Freelancer</div>
+        <div class="toggle-option" id="client-toggle">🏢 I'm a Client</div>
+    </div>
+
+    <div class="registration-container">
+        <!-- Freelancer Registration Card -->
+        <div class="registration-card" id="freelancer-card">
+            <div class="card-header">
+                <div class="card-icon">💼</div>
+                <h2 class="card-title">Freelancer Registration</h2>
+                <p class="card-description">Join our community of talented professionals and find your next opportunity</p>
+            </div>
+            <form id="freelancer-form">
+                <div class="form-group">
+                    <label for="freelancer-name">Full Name</label>
+                    <input type="text" id="freelancer-name" placeholder="Enter your full name" required>
+                    <div class="error-message" id="freelancer-name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="freelancer-email">Email Address</label>
+                    <input type="email" id="freelancer-email" placeholder="Enter your email" required>
+                    <div class="error-message" id="freelancer-email-error"></div>
+                    <div class="success-message" id="freelancer-email-success"></div>
+                </div>
+                <div class="form-group">
+                    <label for="freelancer-password">Password</label>
+                    <input type="password" id="freelancer-password" placeholder="Create a password" required minlength="8">
+                    <div class="password-strength">
+                        <div class="strength-text" id="freelancer-strength-text">Password strength</div>
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="freelancer-strength-fill"></div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="freelancer-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="freelancer-skills">Skills</label>
+                    <input type="text" id="freelancer-skills" placeholder="e.g. Web Design, Content Writing, JavaScript" required>
+                    <div class="error-message" id="freelancer-skills-error"></div>
+                </div>
+                <button type="submit" id="freelancer-submit">Create Freelancer Account</button>
+            </form>
+        </div>
+
+        <!-- Client Registration Card -->
+        <div class="registration-card hidden" id="client-card">
+            <div class="card-header">
+                <div class="card-icon">🎯</div>
+                <h2 class="card-title">Client Registration</h2>
+                <p class="card-description">Find top talent for your projects and business needs</p>
+            </div>
+            <form id="client-form">
+                <div class="form-group">
+                    <label for="client-name">Full Name</label>
+                    <input type="text" id="client-name" placeholder="Enter your full name" required>
+                    <div class="error-message" id="client-name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Email Address</label>
+                    <input type="email" id="client-email" placeholder="Enter your email" required>
+                    <div class="error-message" id="client-email-error"></div>
+                    <div class="success-message" id="client-email-success"></div>
+                </div>
+                <div class="form-group">
+                    <label for="client-password">Password</label>
+                    <input type="password" id="client-password" placeholder="Create a password" required minlength="8">
+                    <div class="password-strength">
+                        <div class="strength-text" id="client-strength-text">Password strength</div>
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="client-strength-fill"></div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="client-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="client-company">Company Name (Optional)</label>
+                    <input type="text" id="client-company" placeholder="Enter your company name">
+                </div>
+                <button type="submit" id="client-submit">Create Client Account</button>
+            </form>
+        </div>
+    </div>
+
+    <p class="login-link">Already have an account? <a href="index.html">Log in</a></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const freelancerToggle = document.getElementById('freelancer-toggle');
+            const clientToggle = document.getElementById('client-toggle');
+            const freelancerCard = document.getElementById('freelancer-card');
+            const clientCard = document.getElementById('client-card');
+
+            // Validation patterns
+            const patterns = {
+                name: /^[a-zA-Z\s]{2,50}$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                skills: /^[a-zA-Z\s,+#.-]{3,100}$/
+            };
+
+            // Validation functions
+            function validateName(name) {
+                if (!name.trim()) return 'Name is required';
+                if (name.length < 2) return 'Name must be at least 2 characters';
+                if (name.length > 50) return 'Name must be less than 50 characters';
+                if (!patterns.name.test(name)) return 'Name can only contain letters and spaces';
+                return '';
+            }
+
+            function validateEmail(email) {
+                if (!email.trim()) return 'Email is required';
+                if (!patterns.email.test(email)) return 'Please enter a valid email address';
+                return '';
+            }
+
+            function validatePassword(password) {
+                if (!password) return 'Password is required';
+                if (password.length < 8) return 'Password must be at least 8 characters';
+                if (!/(?=.*[a-z])/.test(password)) return 'Password must contain at least one lowercase letter';
+                if (!/(?=.*[A-Z])/.test(password)) return 'Password must contain at least one uppercase letter';
+                if (!/(?=.*\d)/.test(password)) return 'Password must contain at least one number';
+                if (!/(?=.*[@$!%*?&])/.test(password)) return 'Password must contain at least one special character';
+                return '';
+            }
+
+            function validateSkills(skills) {
+                if (!skills.trim()) return 'Skills are required';
+                if (skills.length < 3) return 'Please provide more detail about your skills';
+                if (skills.length > 100) return 'Skills description is too long';
+                return '';
+            }
+
+            function getPasswordStrength(password) {
+                let score = 0;
+                if (password.length >= 8) score++;
+                if (/[a-z]/.test(password)) score++;
+                if (/[A-Z]/.test(password)) score++;
+                if (/\d/.test(password)) score++;
+                if (/[@$!%*?&]/.test(password)) score++;
+                if (password.length >= 12) score++;
+                
+                return score;
+            }
+
+            function updatePasswordStrength(password, strengthFill, strengthText) {
+                const strength = getPasswordStrength(password);
+                let width, className, text;
+                
+                if (strength < 3) {
+                    width = '33%';
+                    className = 'strength-weak';
+                    text = 'Weak';
+                } else if (strength < 5) {
+                    width = '66%';
+                    className = 'strength-medium';
+                    text = 'Medium';
+                } else {
+                    width = '100%';
+                    className = 'strength-strong';
+                    text = 'Strong';
+                }
+                
+                strengthFill.style.width = width;
+                strengthFill.className = `strength-fill ${className}`;
+                strengthText.textContent = `Password strength: ${text}`;
+            }
+
+            function showError(inputId, message) {
+                const input = document.getElementById(inputId);
+                const errorEl = document.getElementById(inputId + '-error');
+                const successEl = document.getElementById(inputId + '-success');
+                
+                input.classList.add('invalid');
+                input.classList.remove('valid');
+                errorEl.textContent = message;
+                errorEl.style.display = 'block';
+                if (successEl) successEl.style.display = 'none';
+            }
+
+            function showSuccess(inputId, message = '') {
+                const input = document.getElementById(inputId);
+                const errorEl = document.getElementById(inputId + '-error');
+                const successEl = document.getElementById(inputId + '-success');
+                
+                input.classList.add('valid');
+                input.classList.remove('invalid');
+                errorEl.style.display = 'none';
+                if (successEl && message) {
+                    successEl.textContent = message;
+                    successEl.style.display = 'block';
+                }
+            }
+
+            function clearValidation(inputId) {
+                const input = document.getElementById(inputId);
+                const errorEl = document.getElementById(inputId + '-error');
+                const successEl = document.getElementById(inputId + '-success');
+                
+                input.classList.remove('valid', 'invalid');
+                errorEl.style.display = 'none';
+                if (successEl) successEl.style.display = 'none';
+            }
+
+            // Real-time validation
+            function setupRealTimeValidation(type) {
+                const nameInput = document.getElementById(`${type}-name`);
+                const emailInput = document.getElementById(`${type}-email`);
+                const passwordInput = document.getElementById(`${type}-password`);
+                const strengthFill = document.getElementById(`${type}-strength-fill`);
+                const strengthText = document.getElementById(`${type}-strength-text`);
+
+                nameInput.addEventListener('blur', function() {
+                    const error = validateName(this.value);
+                    if (error) {
+                        showError(`${type}-name`, error);
+                    } else {
+                        showSuccess(`${type}-name`);
+                    }
+                });
+
+                emailInput.addEventListener('blur', function() {
+                    const error = validateEmail(this.value);
+                    if (error) {
+                        showError(`${type}-email`, error);
+                    } else {
+                        showSuccess(`${type}-email`, 'Valid email address');
+                    }
+                });
+
+                passwordInput.addEventListener('input', function() {
+                    updatePasswordStrength(this.value, strengthFill, strengthText);
+                });
+
+                passwordInput.addEventListener('blur', function() {
+                    const error = validatePassword(this.value);
+                    if (error) {
+                        showError(`${type}-password`, error);
+                    } else {
+                        showSuccess(`${type}-password`);
+                    }
+                });
+
+                if (type === 'freelancer') {
+                    const skillsInput = document.getElementById('freelancer-skills');
+                    skillsInput.addEventListener('blur', function() {
+                        const error = validateSkills(this.value);
+                        if (error) {
+                            showError('freelancer-skills', error);
+                        } else {
+                            showSuccess('freelancer-skills');
+                        }
+                    });
+                }
+            }
+
+            // Setup validation for both forms
+            setupRealTimeValidation('freelancer');
+            setupRealTimeValidation('client');
+
+            // Toggle switch functionality
+            freelancerToggle.addEventListener('click', function() {
+                if (!freelancerToggle.classList.contains('active')) {
+                    freelancerToggle.classList.add('active');
+                    clientToggle.classList.remove('active');
+                    freelancerCard.classList.remove('hidden');
+                    clientCard.classList.add('hidden');
+                }
+            });
+
+            clientToggle.addEventListener('click', function() {
+                if (!clientToggle.classList.contains('active')) {
+                    clientToggle.classList.add('active');
+                    freelancerToggle.classList.remove('active');
+                    clientCard.classList.remove('hidden');
+                    freelancerCard.classList.add('hidden');
+                }
+            });
+
+            // Form submission with validation
+            document.getElementById('freelancer-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('freelancer-name').value;
+                const email = document.getElementById('freelancer-email').value;
+                const password = document.getElementById('freelancer-password').value;
+                const skills = document.getElementById('freelancer-skills').value;
+                
+                let isValid = true;
+
+                // Validate all fields
+                const nameError = validateName(name);
+                const emailError = validateEmail(email);
+                const passwordError = validatePassword(password);
+                const skillsError = validateSkills(skills);
+
+                if (nameError) {
+                    showError('freelancer-name', nameError);
+                    isValid = false;
+                } else {
+                    showSuccess('freelancer-name');
+                }
+
+                if (emailError) {
+                    showError('freelancer-email', emailError);
+                    isValid = false;
+                } else {
+                    showSuccess('freelancer-email', 'Valid email address');
+                }
+
+                if (passwordError) {
+                    showError('freelancer-password', passwordError);
+                    isValid = false;
+                } else {
+                    showSuccess('freelancer-password');
+                }
+
+                if (skillsError) {
+                    showError('freelancer-skills', skillsError);
+                    isValid = false;
+                } else {
+                    showSuccess('freelancer-skills');
+                }
+
+                if (isValid) {
+                    const button = document.getElementById('freelancer-submit');
+                    button.textContent = 'Creating Account...';
+                    button.disabled = true;
+                    button.classList.add('loading');
+                    
+                    setTimeout(() => {
+                        alert('Freelancer registration submitted successfully!');
+                        button.textContent = 'Create Freelancer Account';
+                        button.disabled = false;
+                        button.classList.remove('loading');
+                    }, 2000);
+                }
+            });
+
+            document.getElementById('client-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('client-name').value;
+                const email = document.getElementById('client-email').value;
+                const password = document.getElementById('client-password').value;
+                
+                let isValid = true;
+
+                const nameError = validateName(name);
+                const emailError = validateEmail(email);
+                const passwordError = validatePassword(password);
+
+                if (nameError) {
+                    showError('client-name', nameError);
+                    isValid = false;
+                } else {
+                    showSuccess('client-name');
+                }
+
+                if (emailError) {
+                    showError('client-email', emailError);
+                    isValid = false;
+                } else {
+                    showSuccess('client-email', 'Valid email address');
+                }
+
+                if (passwordError) {
+                    showError('client-password', passwordError);
+                    isValid = false;
+                } else {
+                    showSuccess('client-password');
+                }
+
+                if (isValid) {
+                    const button = document.getElementById('client-submit');
+                    button.textContent = 'Creating Account...';
+                    button.disabled = true;
+                    button.classList.add('loading');
+                    
+                    setTimeout(() => {
+                        alert('Client registration submitted successfully!');
+                        button.textContent = 'Create Client Account';
+                        button.disabled = false;
+                        button.classList.remove('loading');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
