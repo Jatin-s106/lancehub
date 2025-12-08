@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LanceFree - Hire Freelancers & Find Freelance Jobs Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Theme Styles */
+        body.dark-theme {
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        body.dark-theme header {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(143, 0, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(143, 0, 255, 0.3);
+        }
+
+        body.dark-theme .logo {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .logo-text {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .logo-text .purple {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .search-bar {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .search-bar:focus {
+            border-color: #8f00ff;
+            box-shadow: 0 0 20px rgba(143, 0, 255, 0.4);
+        }
+
+        body.dark-theme .search-bar::placeholder {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .search-btn {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .search-btn:hover {
+            background: #d90bfd;
+            box-shadow: 0 0 20px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme .header-link {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .header-link:hover {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-signin {
+            border-color: #8f00ff;
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-signin:hover {
+            background: #8f00ff;
+            color: white;
+            box-shadow: 0 0 25px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme .btn-join {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .btn-join:hover {
+            background: #d90bfd;
+            box-shadow: 0 0 25px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme .categories-bar {
+            background: rgba(15, 15, 15, 0.9);
+            border-bottom: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .category-link {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .category-link:hover {
+            color: #8f00ff;
+            border-bottom-color: #8f00ff;
+            text-shadow: 0 0 10px rgba(143, 0, 255, 0.5);
+        }
+
+        body.dark-theme .hero {
+            background: linear-gradient(135deg, #1a0033 0%, #2d004d 100%);
+        }
+
+        body.dark-theme .services {
+            background: #0a0a0a;
+        }
+
+        body.dark-theme .section-title {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .service-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-theme .service-card:hover {
+            border-color: #8f00ff;
+            box-shadow: 0 8px 30px rgba(143, 0, 255, 0.4);
+            transform: translateY(-8px);
+        }
+
+        body.dark-theme .service-image {
+            background: linear-gradient(135deg, #8f00ff 0%, #d90bfd 100%);
+        }
+
+        body.dark-theme .service-content h3 {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .service-content p {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .features {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        body.dark-theme .feature-icon {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+            box-shadow: 0 0 30px rgba(143, 0, 255, 0.5);
+        }
+
+        body.dark-theme .feature-item h3 {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .feature-item p {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .cta {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(143, 0, 255, 0.3);
+        }
+
+        body.dark-theme .btn-primary {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .btn-primary:hover {
+            background: #d90bfd;
+            box-shadow: 0 0 30px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme .btn-secondary {
+            border-color: #8f00ff;
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-secondary:hover {
+            background: #8f00ff;
+            color: white;
+            box-shadow: 0 0 30px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme footer {
+            background: rgba(5, 5, 5, 0.95);
+            border-top: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .footer-section a:hover {
+            color: #8f00ff;
+            text-shadow: 0 0 10px rgba(143, 0, 255, 0.5);
+        }
+
+        body.dark-theme .footer-bottom {
+            border-top-color: rgba(143, 0, 255, 0.2);
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo-text .purple {
+            color: #8b5cf6;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8b5cf6;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #7c3aed;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: #8b5cf6;
+        }
+
+        .theme-toggle {
+            background: #1f2937;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #374151;
+            transform: rotate(180deg);
+        }
+
+        .btn-signin {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid #8b5cf6;
+            color: #8b5cf6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-signin:hover {
+            background: #8b5cf6;
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-join {
+            padding: 0.6rem 1.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-join:hover {
+            background: #7c3aed;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Categories Bar */
+        .categories-bar {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e5e5;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .categories-container {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .category-link:hover {
+            color: #8b5cf6;
+            border-bottom-color: #8b5cf6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 0 0 100%;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+
+        .hero-search {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-search input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .hero-search input:focus {
+            outline: none;
+        }
+
+        .hero-search button {
+            padding: 1rem 2.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .hero-search button:hover {
+            background: #7c3aed;
+        }
+
+        .popular-searches {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .popular-searches span {
+            opacity: 0.9;
+            margin-right: 1rem;
+        }
+
+        .popular-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .popular-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 5%;
+            background: #fff;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1f2937;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .service-content p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .feature-item p {
+            color: #6b7280;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #7c3aed;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1f2937;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .categories-container {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">L</div>
+                <div class="logo-text"><span class="purple">Lance</span>Free</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for any service...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="header-link">Become a Seller</a>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-join">Join</button>
+            </div>
+        </div>
+
+        <div class="categories-bar">
+            <div class="categories-container">
+                <a href="#" class="category-link">Graphics & Design</a>
+                <a href="#" class="category-link">Digital Marketing</a>
+                <a href="#" class="category-link">Writing & Translation</a>
+                <a href="#" class="category-link">Video & Animation</a>
+                <a href="#" class="category-link">Music & Audio</a>
+                <a href="#" class="category-link">Programming & Tech</a>
+                <a href="#" class="category-link">Business</a>
+                <a href="#" class="category-link">Lifestyle</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find the perfect freelance services for your business</h1>
+            <p>Millions of people use LanceFree to turn their ideas into reality.</p>
+            
+            <div class="hero-search">
+                <input type="text" placeholder="Try 'building mobile app'">
+                <button>Search</button>
+            </div>
+
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <span class="popular-tag">Website Design</span>
+                <span class="popular-tag">WordPress</span>
+                <span class="popular-tag">Logo Design</span>
+                <span class="popular-tag">Video Editing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-container">
+            <h2 class="section-title">Popular Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">🎨</div>
+                    <div class="service-content">
+                        <h3>Logo Design</h3>
+                        <p>Build your brand with creative logo designs</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">💻</div>
+                    <div class="service-content">
+                        <h3>Web Development</h3>
+                        <p>Custom websites tailored to your needs</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">📱</div>
+                    <div class="service-content">
+                        <h3>Mobile Apps</h3>
+                        <p>iOS and Android app development</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">✍️</div>
+                    <div class="service-content">
+                        <h3>Content Writing</h3>
+                        <p>Engaging content for your audience</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">🎬</div>
+                    <div class="service-content">
+                        <h3>Video Editing</h3>
+                        <p>Professional video production services</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">📊</div>
+                    <div class="service-content">
+                        <h3>Digital Marketing</h3>
+                        <p>Grow your business with proven strategies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose LanceFree?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Talent Pool</h3>
+                    <p>Access skilled professionals from around the world</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payments</h3>
+                    <p>Protected transactions and milestone-based payments</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your projects completed quickly and efficiently</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer support whenever you need it</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join millions of businesses and freelancers on LanceFree today</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">Find Freelancers</button>
+                <button class="btn-secondary">Start Selling</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <a href="#">Graphics & Design</a>
+                <a href="#">Digital Marketing</a>
+                <a href="#">Writing & Translation</a>
+                <a href="#">Video & Animation</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Careers</a>
+                <a href="#">Press & News</a>
+                <a href="#">Partnerships</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help & Support</a>
+                <a href="#">Trust & Safety</a>
+                <a href="#">Selling on LanceFree</a>
+                <a href="#">Buying on LanceFree</a>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a href="#">Events</a>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Affiliates</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LanceFree. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️';
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            // Update icon and save preference
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
