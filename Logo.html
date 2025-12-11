@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design Services - LanceFree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Theme Styles */
+        body.dark-theme {
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        body.dark-theme header {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(143, 0, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(143, 0, 255, 0.3);
+        }
+
+        body.dark-theme .logo {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .logo-text {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .logo-text .purple {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .search-bar {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .search-bar:focus {
+            border-color: #8f00ff;
+            box-shadow: 0 0 20px rgba(143, 0, 255, 0.4);
+        }
+
+        body.dark-theme .search-bar::placeholder {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .search-btn {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .search-btn:hover {
+            background: #d90bfd;
+            box-shadow: 0 0 20px rgba(143, 0, 255, 0.6);
+        }
+
+        body.dark-theme .header-link {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .header-link:hover {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-signin {
+            border-color: #8f00ff;
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-signin:hover {
+            background: #8f00ff;
+            color: white;
+        }
+
+        body.dark-theme .btn-join {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .btn-join:hover {
+            background: #d90bfd;
+        }
+
+        body.dark-theme .breadcrumb {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        body.dark-theme .breadcrumb a {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .breadcrumb span {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .hero-logo {
+            background: linear-gradient(135deg, #1a0033 0%, #2d004d 100%);
+        }
+
+        body.dark-theme .filter-section {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .filter-section h3,
+        body.dark-theme .filter-group label {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .filter-input,
+        body.dark-theme select {
+            background: rgba(30, 30, 30, 0.8);
+            border-color: rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .filter-input:focus,
+        body.dark-theme select:focus {
+            border-color: #8f00ff;
+        }
+
+        body.dark-theme .checkbox-label {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .gig-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .gig-card:hover {
+            border-color: #8f00ff;
+            box-shadow: 0 10px 40px rgba(143, 0, 255, 0.4);
+        }
+
+        body.dark-theme .seller-info h4,
+        body.dark-theme .gig-title {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .seller-level {
+            background: rgba(143, 0, 255, 0.2);
+            color: #d90bfd;
+        }
+
+        body.dark-theme .gig-description {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .gig-footer {
+            border-top-color: rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .price {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .info-section {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        body.dark-theme .info-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .info-card:hover {
+            border-color: #8f00ff;
+            box-shadow: 0 8px 30px rgba(143, 0, 255, 0.4);
+        }
+
+        body.dark-theme .info-icon {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .info-card h3 {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .info-card p {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .packages-section {
+            background: #0a0a0a;
+        }
+
+        body.dark-theme .package-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .package-card.featured {
+            border-color: #8f00ff;
+            box-shadow: 0 0 40px rgba(143, 0, 255, 0.4);
+        }
+
+        body.dark-theme .package-header h3,
+        body.dark-theme .package-price {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .package-feature {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .btn-package {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .btn-package:hover {
+            background: #d90bfd;
+        }
+
+        body.dark-theme .package-card.featured .package-header {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .faq-section {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        body.dark-theme .faq-item {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .faq-question {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .faq-answer {
+            color: #94a3b8;
+        }
+
+        body.dark-theme footer {
+            background: rgba(5, 5, 5, 0.95);
+            border-top: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .footer-section a:hover {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .footer-bottom {
+            border-top-color: rgba(143, 0, 255, 0.2);
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo-text .purple {
+            color: #8b5cf6;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8b5cf6;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #7c3aed;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: #8b5cf6;
+        }
+
+        .theme-toggle {
+            background: #1f2937;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #374151;
+            transform: rotate(180deg);
+        }
+
+        .btn-signin {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid #8b5cf6;
+            color: #8b5cf6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-signin:hover {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .btn-join {
+            padding: 0.6rem 1.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-join:hover {
+            background: #7c3aed;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            padding: 1rem 5%;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+
+        .breadcrumb a:hover {
+            color: #8b5cf6;
+        }
+
+        .breadcrumb span {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero-logo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .hero-logo-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Filters Sidebar */
+        .filters-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        /* Gigs Grid */
+        .gigs-section {
+            width: 100%;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-count {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .sort-dropdown {
+            padding: 0.6rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .gigs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gig-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gig-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .gig-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gig-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #8b5cf6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .gig-content {
+            padding: 1.2rem;
+        }
+
+        .seller-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .seller-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .seller-info h4 {
+            font-size: 0.9rem;
+            color: #1f2937;
+        }
+
+        .seller-level {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .gig-title {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .gig-description {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .gig-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .rating-count {
+            color: #6b7280;
+            margin-left: 0.3rem;
+        }
+
+        .gig-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .favorite-btn:hover {
+            color: #ef4444;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #8b5cf6;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        .info-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .info-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .packages-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .package-card.featured {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .package-header {
+            background: #f9fafb;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .package-card.featured .package-header {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white;
+        }
+
+        .package-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .package-card.featured .package-price {
+            color: white;
+        }
+
+        .package-body {
+            padding: 2rem 1.5rem;
+        }
+
+        .package-feature {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .check-icon {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .btn-package {
+            width: 100%;
+            padding: 0.9rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-package:hover {
+            background: #7c3aed;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.05rem;
+        }
+
+        .faq-icon {
+            color: #8b5cf6;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                margin: 0;
+            }
+
+            .hero-logo h1 {
+                font-size: 1.8rem;
+            }
+
+            .gigs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">L</div>
+                <div class="logo-text"><span class="purple">Lance</span>Free</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for logo design services...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="header-link">Become a Seller</a>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-join">Join</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="#">LanceFree</a> / 
+            <a href="#">Graphics & Design</a> / 
+            <span>Logo Design</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-logo">
+        <div class="hero-logo-content">
+            <h1>Professional Logo Design Services</h1>
+            <p>Get a unique, memorable logo that represents your brand perfectly. Work with top-rated designers from around the world.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Budget</h3>
+                <div class="filter-group">
+                    <label>Min Price ($)</label>
+                    <input type="number" class="filter-input" placeholder="0" min="0">
+                </div>
+                <div class="filter-group">
+                    <label>Max Price ($)</label>
+                    <input type="number" class="filter-input" placeholder="1000" min="0">
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Delivery Time</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Express (24hrs)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Up to 3 days
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Up to 7 days
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Anytime
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Seller Level</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Top Rated Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Level 2 Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Level 1 Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> New Seller
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Logo Style</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Minimalist
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Modern
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Vintage
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> 3D
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Hand Drawn
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Gigs Section -->
+        <section class="gigs-section">
+            <div class="results-header">
+                <div class="results-count">
+                    <strong>12,847</strong> logo design services available
+                </div>
+                <select class="sort-dropdown">
+                    <option>Relevance</option>
+                    <option>Best Selling</option>
+                    <option>Newest Arrivals</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+            <div class="gigs-grid">
+                <!-- Gig Card 1 -->
+                <div class="gig-card">
+                    <div class="gig-image">
+                        🎨
+                        <div class="gig-badge">Best Seller</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">JD</div>
+                            <h4>johndesigns</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                        <h3 class="gig-title">I will design a modern minimalist logo for your brand</h3>
+                        <p class="gig-description">Professional logo design with unlimited revisions and source files included.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(2.4k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $45</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gig Card 2 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        ✨
+                        <div class="gig-badge">Top Rated</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">SC</div>
+                            <h4>sarahcreates</h4>
+                            <span class="seller-level">Top Rated</span>
+                        </div>
+                        <h3 class="gig-title">I will create a unique logo with 3 concepts and revisions</h3>
+                        <p class="gig-description">Get 3 unique concepts to choose from with unlimited revisions until perfect.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.9</span>
+                            <span class="rating-count">(1.8k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $65</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gig Card 3 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        🖌️
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">MP</div>
+                            <h4>mikepixel</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                        <h3 class="gig-title">I will design a luxury logo for premium brands</h3>
+                        <p class="gig-description">High-end logo design for luxury brands with premium quality and elegance.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(956)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $85</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gig Card 4 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        🎯
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">AL</div>
+                            <h4>alexlogo</h4>
+                            <span class="seller-level">Level 1</span>
+                        </div>
+                        <h3 class="gig-title">I will design a hand drawn vintage logo</h3>
+                        <p class="gig-description">Custom hand-drawn logos with a vintage feel for unique brand identity.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.8</span>
+                            <span class="rating-count">(742)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $55</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gig Card 5 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        💎
+                        <div class="gig-badge">Express</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">EM</div>
+                            <h4>emmagraphics</h4>
+                            <span class="seller-level">Top Rated</span>
+                        </div>
+                        <h3 class="gig-title">I will design a 3D logo in 24 hours</h3>
+                        <p class="gig-description">Fast turnaround 3D logo design with modern effects and multiple file formats.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.9</span>
+                            <span class="rating-count">(1.2k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $75</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gig Card 6 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                        🌟
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">DK</div>
+                            <h4>davidkreativ</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                        <h3 class="gig-title">I will design a mascot logo for sports teams</h3>
+                        <p class="gig-description">Creative mascot logos perfect for sports teams, gaming, and eSports brands.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(834)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="info-container">
+            <h2 class="section-title">Why Choose Our Logo Designers?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🎨</div>
+                    <h3>Creative Excellence</h3>
+                    <p>Work with award-winning designers who understand brand identity and create logos that truly represent your vision.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Get your logo design within 24-72 hours with our express delivery options available from most sellers.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🔄</div>
+                    <h3>Unlimited Revisions</h3>
+                    <p>Most packages include unlimited revisions to ensure you get exactly what you envisioned for your brand.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📁</div>
+                    <h3>All File Formats</h3>
+                    <p>Receive your logo in all necessary formats: AI, EPS, PNG, JPG, PDF, and more for all your branding needs.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Quality logo design starting from just $5. Find the perfect designer that fits your budget and requirements.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <h3>Satisfaction Guaranteed</h3>
+                    <p>100% money-back guarantee if you're not satisfied. Our designers are committed to your success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+        <div class="packages-container">
+            <h2 class="section-title">Popular Logo Design Packages</h2>
+            <div class="packages-grid">
+                <!-- Basic Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Basic</h3>
+                        <div class="package-price">$45</div>
+                        <p>3 Days Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>1 Logo Concept</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>3 Revisions</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>High Resolution Files</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>PNG & JPG Formats</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Commercial Use</span>
+                        </div>
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Standard Package (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3>Standard</h3>
+                        <div class="package-price">$85</div>
+                        <p>2 Days Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>3 Logo Concepts</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unlimited Revisions</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Vector Source Files (AI, EPS)</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>All File Formats</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Social Media Kit</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Print Ready Files</span>
+                        </div>
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Premium</h3>
+                        <div class="package-price">$150</div>
+                        <p>1 Day Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>5 Logo Concepts</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unlimited Revisions</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Complete Brand Identity</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Business Card Design</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Letterhead Design</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Social Media Kit</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Brand Style Guide</span>
+                        </div>
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What file formats will I receive?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Most logo designers provide PNG, JPG, and PDF formats in the basic package. Premium packages include vector files (AI, EPS, SVG) which can be scaled to any size without losing quality.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does it take to get a logo?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Delivery times vary by seller and package. Express options can deliver in 24 hours, while standard packages typically take 2-5 days. Custom projects may take longer depending on complexity.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I request revisions?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Most packages include multiple revisions. Standard and Premium packages often include unlimited revisions to ensure you're completely satisfied with the final design.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will I own the copyright to my logo?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, once the project is completed and paid for, you receive full commercial rights and copyright to your logo. You can use it however you wish for your business.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What information do I need to provide?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    You should provide your company name, industry, target audience, preferred colors, style preferences, and any specific ideas or inspiration. The more details you provide, the better the designer can meet your needs.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <a href="#">Graphics & Design</a>
+                <a href="#">Digital Marketing</a>
+                <a href="#">Writing & Translation</a>
+                <a href="#">Video & Animation</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Careers</a>
+                <a href="#">Press & News</a>
+                <a href="#">Partnerships</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help & Support</a>
+                <a href="#">Trust & Safety</a>
+                <a href="#">Selling on LanceFree</a>
+                <a href="#">Buying on LanceFree</a>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a href="#">Events</a>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Affiliates</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LanceFree. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Favorite button functionality
+        const favBtns = document.querySelectorAll('.favorite-btn');
+        favBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+                btn.style.color = btn.textContent === '♥' ? '#ef4444' : '';
+            });
+        });
+
+        // Gig card click functionality
+        const gigCards = document.querySelectorAll('.gig-card');
+        gigCards.forEach(card => {
+            card.addEventListener('click', () => {
+                alert('Opening gig details... (This would redirect to the gig page)');
+            });
+        });
+
+        // Package button functionality
+        const packageBtns = document.querySelectorAll('.btn-package');
+        packageBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const packageName = btn.closest('.package-card').querySelector('.package-header h3').textContent;
+                alert(`Ordering ${packageName} package... (This would redirect to checkout)`);
+            });
+        });
+
+        // Search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchBtn.addEventListener('click', () => {
+            if (searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+    </script>
+</body>
+</html>
