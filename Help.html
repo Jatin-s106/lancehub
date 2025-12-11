@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LanceFree - Help Desk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --primary-gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-bg-dark: rgba(30, 30, 30, 0.95);
+      --text-primary: #333;
+      --text-primary-dark: #e0e0e0;
+      --text-secondary: #666;
+      --text-secondary-dark: #a0a0a0;
+      --text-white: white;
+      --text-white-dark: #f0f0f0;
+      --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      --card-shadow-dark: 0 20px 40px rgba(0,0,0,0.3);
+      --border-light: rgba(255, 255, 255, 0.2);
+      --border-dark: rgba(255, 255, 255, 0.1);
+      --navbar-bg: rgba(255, 255, 255, 0.1);
+      --navbar-bg-dark: rgba(20, 20, 30, 0.3);
+      --accent-color: #667eea;
+      --accent-color-dark: #ffd700;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--primary-gradient);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    body.dark { background: var(--primary-gradient-dark); }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+
+    body.dark .navbar {
+      background: var(--navbar-bg-dark);
+      border-bottom-color: var(--border-dark);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    body.dark .logo { color: var(--text-white-dark); }
+
+    .logo .highlight {
+      color: var(--accent-color);
+      transition: color 0.3s ease;
+    }
+
+    body.dark .logo .highlight { color: var(--accent-color-dark); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: var(--text-white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    body.dark .nav-links li a { color: var(--text-white-dark); }
+
+    .nav-links li a:hover {
+      color: var(--accent-color);
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+
+    body.dark .nav-links li a:hover {
+      color: var(--accent-color-dark);
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    .nav-links li a.active {
+      color: var(--accent-color);
+      background: rgba(102, 126, 234, 0.2);
+    }
+
+    body.dark .nav-links li a.active {
+      color: var(--accent-color-dark);
+      background: rgba(255, 215, 0, 0.2);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      cursor: pointer;
+      z-index: 1001;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    body.dark .theme-toggle {
+      background: rgba(30, 30, 40, 0.6);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .theme-toggle-slider {
+      width: 26px;
+      height: 26px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    body.dark .theme-toggle-slider {
+      transform: translateX(30px);
+      background: #333;
+      color: #ffd700;
+    }
+
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: all 0.5s ease;
+    }
+
+    body.dark .loading { background: var(--primary-gradient-dark); }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-top: 6rem;
+    }
+
+    .help-section {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .help-section h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--text-white);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      opacity: 0;
+    }
+
+    body.dark .help-section h1 { color: var(--text-white-dark); }
+
+    .help-section h1 span {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    body.dark .help-section h1 span {
+      background: linear-gradient(45deg, #ffd700, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      opacity: 0;
+    }
+
+    body.dark .subtitle { color: rgba(240, 240, 240, 0.9); }
+
+    .search-box {
+      max-width: 600px;
+      margin: 2rem auto 4rem;
+      position: relative;
+      opacity: 0;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 1.2rem 3.5rem 1.2rem 1.5rem;
+      border: 2px solid var(--border-light);
+      border-radius: 50px;
+      background: var(--card-bg);
+      color: var(--text-primary);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    body.dark .search-box input {
+      background: var(--card-bg-dark);
+      color: var(--text-primary-dark);
+      border-color: var(--border-dark);
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+
+    body.dark .search-box input:focus {
+      border-color: var(--accent-color-dark);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+    }
+
+    .search-box button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent-color);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    body.dark .search-box button { background: var(--accent-color-dark); color: black; }
+
+    .search-box button:hover { transform: translateY(-50%) scale(1.05); }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .category-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    body.dark .category-card {
+      background: var(--card-bg-dark);
+      box-shadow: var(--card-shadow-dark);
+      border-color: var(--border-dark);
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    }
+
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    body.dark .category-icon {
+      background: linear-gradient(45deg, #ffd700, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .category-card h3 {
+      color: var(--text-primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    body.dark .category-card h3 { color: var(--text-primary-dark); }
+
+    .category-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    body.dark .category-card p { color: var(--text-secondary-dark); }
+
+    .faq-section {
+      margin: 4rem 0;
+    }
+
+    .faq-section h2 {
+      font-size: 2.5rem;
+      color: var(--text-white);
+      text-align: center;
+      margin-bottom: 2rem;
+      opacity: 0;
+    }
+
+    body.dark .faq-section h2 { color: var(--text-white-dark); }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+
+    body.dark .faq-item {
+      background: var(--card-bg-dark);
+      border-color: var(--border-dark);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    body.dark .faq-question { color: var(--text-primary-dark); }
+
+    .faq-question:hover { background: rgba(102, 126, 234, 0.05); }
+
+    body.dark .faq-question:hover { background: rgba(255, 215, 0, 0.05); }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+
+    body.dark .faq-icon { color: var(--accent-color-dark); }
+
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--text-secondary);
+      padding: 0 1.5rem;
+    }
+
+    body.dark .faq-answer { color: var(--text-secondary-dark); }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .contact-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 4rem 0;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      opacity: 0;
+    }
+
+    body.dark .contact-section {
+      background: var(--card-bg-dark);
+      border-color: var(--border-dark);
+    }
+
+    .contact-section h2 {
+      color: var(--text-primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    body.dark .contact-section h2 { color: var(--text-primary-dark); }
+
+    .contact-section p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    body.dark .contact-section p { color: var(--text-secondary-dark); }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-method {
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: rgba(102, 126, 234, 0.05);
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    body.dark .contact-method {
+      background: rgba(255, 215, 0, 0.05);
+      border-color: rgba(255, 215, 0, 0.1);
+    }
+
+    .contact-method:hover {
+      transform: translateY(-5px);
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    body.dark .contact-method:hover {
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    .contact-method i {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    body.dark .contact-method i { color: var(--accent-color-dark); }
+
+    .contact-method h4 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    body.dark .contact-method h4 { color: var(--text-primary-dark); }
+
+    .contact-method p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    body.dark .contact-method p { color: var(--text-secondary-dark); }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    body.dark .btn {
+      background: linear-gradient(45deg, #ffd700, #ff6b35);
+      color: black;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 1rem; }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navbar-bg-dark);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 0 0 15px 15px;
+      }
+
+      .nav-links.active { display: flex; }
+      .mobile-menu-toggle { display: block; }
+      .container { padding: 1rem; padding-top: 5rem; }
+      .categories-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="dark">
+  <div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="logo">
+        <span class="highlight">Lance</span>Free
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="helpdesk.html" class="active">Help</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" id="mobileToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="theme-toggle" id="themeToggle">
+    <div class="theme-toggle-slider">
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="help-section">
+      <h1>How can we <span>help</span> you?</h1>
+      <p class="subtitle">Find answers to your questions and get the support you need</p>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search for help articles, FAQs, or topics..." id="searchInput">
+        <button><i class="fa-solid fa-search"></i></button>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-rocket"></i>
+          <h3>Getting Started</h3>
+          <p>Learn the basics and get your account set up</p>
+        </div>
+
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-user-tie"></i>
+          <h3>For Freelancers</h3>
+          <p>Find projects, submit bids, and grow your career</p>
+        </div>
+
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-briefcase"></i>
+          <h3>For Clients</h3>
+          <p>Post projects, hire talent, and manage work</p>
+        </div>
+
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-credit-card"></i>
+          <h3>Payments & Billing</h3>
+          <p>Understanding payments, fees, and invoices</p>
+        </div>
+
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-shield-alt"></i>
+          <h3>Safety & Security</h3>
+          <p>Keep your account and data secure</p>
+        </div>
+
+        <div class="category-card">
+          <i class="category-icon fa-solid fa-tools"></i>
+          <h3>Technical Support</h3>
+          <p>Troubleshoot issues and technical problems</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do I create an account?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Creating an account is simple! Click on "Join" in the navigation bar, choose whether you're a freelancer or client, fill in your details, and verify your email. You'll be ready to start in minutes!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What fees does LanceFree charge?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>LanceFree charges a 10% service fee on all transactions for freelancers. Clients pay a small processing fee of 3% per payment. These fees help us maintain the platform and provide excellent support.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do I submit a bid on a project?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Browse available projects, click on one that interests you, review the requirements, and click "Submit Proposal". Include your price, timeline, and a detailed explanation of how you'll complete the project.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the payment escrow system work?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>When a project starts, the client deposits funds into escrow. The freelancer works on the project, and upon completion and client approval, the funds are released. This protects both parties.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What if I have a dispute with a client/freelancer?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>If you encounter issues, first try to resolve them through communication. If that doesn't work, you can open a dispute through your contract page. Our support team will review the case and help mediate a fair resolution.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How can I improve my freelancer profile?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Add a professional photo, write a compelling bio, showcase your best work in your portfolio, list all relevant skills, and maintain a high rating by delivering quality work on time. Client reviews are crucial!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I work with clients from other countries?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! LanceFree is a global platform. You can work with clients from over 180 countries. Payments are processed in USD, and we handle currency conversions automatically.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does it take to withdraw my earnings?</span>
+            <i class="faq-icon fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Once funds are released from escrow, you can withdraw them immediately. Depending on your payment method (PayPal, bank transfer, etc.), it typically takes 1-5 business days to reach your account.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <h2>Still need help?</h2>
+      <p>Our support team is here 24/7 to assist you</p>
+      
+      <div class="contact-methods">
+        <div class="contact-method">
+          <i class="fa-solid fa-envelope"></i>
+          <h4>Email Support</h4>
+          <p>support@lancefree.com</p>
+        </div>
+
+        <div class="contact-method">
+          <i class="fa-solid fa-comments"></i>
+          <h4>Live Chat</h4>
+          <p>Available 24/7</p>
+        </div>
+
+        <div class="contact-method">
+          <i class="fa-solid fa-phone"></i>
+          <h4>Phone Support</h4>
+          <p>+1 (555) 123-4567</p>
+        </div>
+      </div>
+
+      <a href="#" class="btn" style="margin-top: 2rem;">Contact Support Team</a>
+    </section>
+  </div>
+
+  <script>
+    class ThemeManager {
+      constructor() {
+        this.currentTheme = 'dark';
+        this.init();
+      }
+
+      init() {
+        this.loadSavedTheme();
+        this.setupToggleButton();
+        this.hideLoadingScreen();
+      }
+
+      loadSavedTheme() {
+        const savedTheme = localStorage.getItem('lancefree-theme');
+        if (savedTheme) {
+          this.currentTheme = savedTheme;
+          this.applyTheme(savedTheme);
+        }
+      }
+
+      applyTheme(theme) {
+        const body = document.body;
+        const themeSlider = document.querySelector('.theme-toggle-slider i');
+        
+        if (theme === 'dark') {
+          body.classList.add('dark');
+          if (themeSlider) themeSlider.className = 'fa-solid fa-moon';
+        } else {
+          body.classList.remove('dark');
+          if (themeSlider) themeSlider.className = 'fa-solid fa-sun';
+        }
+        
+        this.currentTheme = theme;
+        localStorage.setItem('lancefree-theme', theme);
+      }
+
+      toggleTheme() {
+        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme(newTheme);
+      }
+
+      setupToggleButton() {
+        const toggleButton = document.getElementById('themeToggle');
+        if (toggleButton) {
+          toggleButton.addEventListener('click', () => this.toggleTheme());
+        }
+      }
+
+      hideLoadingScreen() {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => loading.style.display = 'none', 500);
+          }
+        }, 1000);
+      }
+    }
+
+    const themeManager = new ThemeManager();
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      const icon = this.querySelector('i');
+      icon.className = navLinks.classList.contains('active') ? 'fa-solid fa-times' : 'fa-solid fa-bars';
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', function() {
+        const wasActive = item.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          anime({
+            targets: item,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Show all if search is empty
+      if (searchTerm === '') {
+        faqItems.forEach(item => {
+          item.style.display = 'block';
+        });
+      }
+    });
+
+    // Animate on page load
+    window.addEventListener('load', function() {
+      // Hide loading
+      setTimeout(() => {
+        document.getElementById('loading').style.opacity = '0';
+        setTimeout(() => document.getElementById('loading').style.display = 'none', 500);
+      }, 1000);
+
+      // Animate title
+      anime({
+        targets: '.help-section h1',
+        opacity: [0, 1],
+        translateY: [-50, 0],
+        duration: 1000,
+        delay: 500,
+        easing: 'easeOutCubic'
+      });
+
+      // Animate subtitle
+      anime({
+        targets: '.subtitle',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800,
+        delay: 700,
+        easing: 'easeOutCubic'
+      });
+
+      // Animate search box
+      anime({
+        targets: '.search-box',
+        opacity: [0, 1],
+        scale: [0.9, 1],
+        duration: 600,
+        delay: 900,
+        easing: 'easeOutCubic'
+      });
+
+      // Animate category cards
+      anime({
+        targets: '.category-card',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        scale: [0.9, 1],
+        duration: 600,
+        delay: anime.stagger(100, {start: 1100}),
+        easing: 'easeOutCubic'
+      });
+
+      // Animate FAQ section title
+      anime({
+        targets: '.faq-section h2',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800,
+        delay: 1500,
+        easing: 'easeOutCubic'
+      });
+
+      // Animate FAQ items
+      anime({
+        targets: '.faq-item',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 500,
+        delay: anime.stagger(80, {start: 1700}),
+        easing: 'easeOutCubic'
+      });
+
+      // Animate contact section
+      anime({
+        targets: '.contact-section',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        duration: 800,
+        delay: 2200,
+        easing: 'easeOutCubic'
+      });
+    });
+
+    // Category card click handler
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.querySelector('h3').textContent;
+        
+        // Pulse animation
+        anime({
+          targets: this,
+          scale: [1, 0.95, 1],
+          duration: 300,
+          easing: 'easeInOutQuad'
+        });
+
+        // Show message
+        showMessage(`Opening ${title} section...`, 'info');
+      });
+    });
+
+    // Contact method animations
+    document.querySelectorAll('.contact-method').forEach(method => {
+      method.addEventListener('mouseenter', function() {
+        anime({
+          targets: this.querySelector('i'),
+          scale: [1, 1.2],
+          rotate: [0, 10],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+
+      method.addEventListener('mouseleave', function() {
+        anime({
+          targets: this.querySelector('i'),
+          scale: [1.2, 1],
+          rotate: [10, 0],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+
+    // Message display function
+    function showMessage(message, type) {
+      const existingMsg = document.querySelector('.message');
+      if (existingMsg) existingMsg.remove();
+      
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${type}`;
+      msgDiv.textContent = message;
+      msgDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        z-index: 10000;
+        max-width: 300px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        animation: slideInRight 0.3s ease-out;
+      `;
+      
+      const isDark = document.body.classList.contains('dark');
+      switch(type) {
+        case 'success':
+          msgDiv.style.background = isDark ? 'linear-gradient(135deg, #059669, #047857)' : 'linear-gradient(135deg, #10b981, #059669)';
+          break;
+        case 'error':
+          msgDiv.style.background = isDark ? 'linear-gradient(135deg, #dc2626, #b91c1c)' : 'linear-gradient(135deg, #ef4444, #dc2626)';
+          break;
+        case 'info':
+          msgDiv.style.background = isDark ? 'linear-gradient(135deg, #2563eb, #1d4ed8)' : 'linear-gradient(135deg, #3b82f6, #2563eb)';
+          break;
+      }
+      
+      document.body.appendChild(msgDiv);
+      
+      setTimeout(() => {
+        msgDiv.style.animation = 'slideOutRight 0.3s ease-in';
+        setTimeout(() => msgDiv.remove(), 300);
+      }, 3000);
+    }
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(100px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes slideOutRight {
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(100px); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Button click handler
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        anime({
+          targets: this,
+          scale: [1, 0.95, 1],
+          duration: 300,
+          easing: 'easeInOutQuad'
+        });
+
+        showMessage('Opening support channel...', 'success');
+      });
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Cmd + K for search focus
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+
+      // Escape to close mobile menu
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+      }
+    });
+
+    // Scroll reveal for elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anime({
+            targets: entry.target,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 600,
+            easing: 'easeOutCubic'
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements
+    document.querySelectorAll('.category-card, .faq-item, .contact-method').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!document.querySelector('.navbar').contains(event.target)) {
+        navLinks.classList.remove('active');
+        mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+      }
+    });
+  </script>
+</body>
+</html>
