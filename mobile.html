@@ -574,20 +574,30 @@
             cursor: pointer;
         }
 
-        .gigs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
+        .gigs-grid { /* or the parent div that contains all .gig-card */
+    display: flex;
+    flex-wrap: wrap;       /* allows cards to wrap to next line */
+    gap: 2rem;             /* space between cards */
+    justify-content: center; /* center horizontally on desktop */
+}
 
-        .gig-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+.gig-card {
+    flex: 1 1 300px;  /* each card takes at least 300px, grows if space available */
+    max-width: 300px; /* optional: keeps card width consistent */
+}
+
+/* Mobile view: stack vertically */
+@media (max-width: 768px) {
+    .gigs-grid {
+        flex-direction: column; /* stack cards vertically */
+        align-items: center;    /* center them */
+    }
+
+    .gig-card {
+        max-width: 90%; /* optional: make them a bit narrower on mobile */
+    }
+}
+
 
         .gig-card:hover {
             transform: translateY(-5px);
