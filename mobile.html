@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logo Design Services - LanceFree</title>
     <style>
-        * {
+        * { 
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Smooth layout transition */
-.header-top,
-.header-actions,
-.hero-search,
-.popular-searches,
-.services-grid,
-.features-grid {
-    transition: all 0.3s ease;
-}
-
         }
 
         body {
@@ -1024,7 +1014,7 @@
             </div>
 
             <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search for logo design services...">
+                <input type="text" class="search-bar" placeholder="Search for mobile app devlopment services...">
                 <button class="search-btn">Search</button>
             </div>
 
@@ -1048,556 +1038,454 @@
 
     <!-- Hero Section -->
     <section class="hero-logo">
-    <div class="hero-logo-content">
-        <h1>Professional Mobile App Development Services</h1>
-        <p>
-            Build fast, secure, and user-friendly mobile applications tailored to your business needs.
-            Work with experienced developers dedicated to delivering high-quality iOS and Android apps.
-        </p>
-    </div>
-</section>
-
+        <div class="hero-logo-content">
+            <h1>Professional Mobile App Devlopment Services</h1>
+           <p>Develop cross-platform apps that work flawlessly on both iOS and Android, using the latest technologies.</p>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <div class="main-content">
-    <!-- Filters Sidebar -->
-    <aside class="filters-sidebar">
-        <div class="filter-section">
-            <h3>Budget</h3>
-            <div class="filter-group">
-                <label>Min Price ($)</label>
-                <input type="number" class="filter-input" placeholder="0" min="0">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Budget</h3>
+                <div class="filter-group">
+                    <label>Min Price ($)</label>
+                    <input type="number" class="filter-input" placeholder="0" min="0">
+                </div>
+                <div class="filter-group">
+                    <label>Max Price ($)</label>
+                    <input type="number" class="filter-input" placeholder="1000" min="0">
+                </div>
             </div>
-            <div class="filter-group">
-                <label>Max Price ($)</label>
-                <input type="number" class="filter-input" placeholder="5000" min="0">
-            </div>
-        </div>
 
-        <div class="filter-section">
-            <h3>Delivery Time</h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox"> Express (3–5 days)
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Up to 1 week
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Up to 2 weeks
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Flexible
-                </label>
+            <div class="filter-section">
+                <h3>Delivery Time</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Express (24hrs)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Up to 3 days
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Up to 7 days
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Anytime
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="filter-section">
-            <h3>Developer Level</h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox"> Top Rated Developer
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Senior Developer
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Mid-Level Developer
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> New Developer
-                </label>
+            <div class="filter-section">
+                <h3>Seller Level</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Top Rated Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Level 2 Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Level 1 Seller
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> New Seller
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="filter-section">
-            <h3>App Type</h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox"> Android App
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> iOS App
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> Cross-Platform
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> UI/UX Only
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> App Maintenance
-                </label>
-            </div>
-        </div>
-    </aside>
+            <div class="filter-section">
+    <h3>Mobile App Type</h3>
+    <div class="checkbox-group">
+        <label class="checkbox-label">
+            <input type="checkbox"> iOS App
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox"> Android App
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox"> Cross-Platform
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox"> Mobile Game
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox"> UI/UX Design
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox"> App Maintenance
+        </label>
+    </div>
+</div>
 
-    <!-- Services Section -->
-    <section class="gigs-section">
-        <div class="results-header">
-            <div class="results-count">
-                <strong>8,420</strong> mobile app development services available
-            </div>
-            <select class="sort-dropdown">
-                <option>Relevance</option>
-                <option>Best Selling</option>
-                <option>Newest Arrivals</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-            </select>
-        </div>
+        </aside>
 
-        <div class="gigs-grid">
-            <!-- Gig Card 1 -->
-            <div class="gig-card">
-                <div class="gig-image">
-                    📱
-                    <div class="gig-badge">Best Seller</div>
+        <!-- Gigs Section -->
+        <section class="gigs-section">
+    <div class="results-header">
+        <div class="results-count">
+            <strong>8,432</strong> mobile app development services available
+        </div>
+        <select class="sort-dropdown">
+            <option>Relevance</option>
+            <option>Best Selling</option>
+            <option>Newest Arrivals</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+        </select>
+    </div>
+</section>
+
+            <div class="gigs-grid">
+                <!-- Gig Card 1 -->
+                <div class="gig-card">
+                    <div class="gig-image">
+                        🎨
+                        <div class="gig-badge">Best Seller</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">JD</div>
+                            <h4>JacobDev</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                        <h3 class="gig-title">iOS App Development</h3>
+                           <p class="gig-description">Build powerful and user-friendly iPhone and iPad apps with expert iOS developers.</p>
+
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(2.4k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $45</div>
+                        </div>
+                    </div>
                 </div>
 
-                    <!-- Gig Card 1 -->
-<div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-        📱
-        <div class="gig-badge">Best Seller</div>
-    </div>
+                <!-- Gig Card 2 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        ✨
+                        <div class="gig-badge">Top Rated</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">SC</div>
+                            <h4>Sahil</h4>
+                            <span class="seller-level">Top Rated</span>
+                        </div>
+                        <h3 class="gig-title">Android App Development</h3>
+                            <p class="gig-description">Create responsive and high-performance Android apps tailored for your business.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.9</span>
+                            <span class="rating-count">(1.8k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $65</div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">JD</div>
-            <h4>johndev</h4>
-            <span class="seller-level">Level 2</span>
-        </div>
-
-        <h3 class="gig-title">I will develop a modern mobile app for your business</h3>
-
-        <p class="gig-description">
-            Professional mobile app development with clean UI, smooth performance,
-            unlimited revisions, and full source code included.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>5.0</span>
-            <span class="rating-count">(2.4k)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $149</div>
-        </div>
-    </div>
-</div>
-
-<!-- Gig Card 2 -->
-<div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-        📲
-        <div class="gig-badge">Top Rated</div>
-    </div>
-
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">SC</div>
-            <h4>ShivayCodeX</h4>
-            <span class="seller-level">Top Rated</span>
-        </div>
-
-        <h3 class="gig-title">I will build a custom iOS or Android app with premium UI</h3>
-
-        <p class="gig-description">
-            Get a fully customized mobile app with modern design, optimized performance,
-            and multiple revisions until perfection.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>4.9</span>
-            <span class="rating-count">(1.8k)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $299</div>
-        </div>
-    </div>
-</div>
-
-<!-- Gig Card 3 -->
-<div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-        📱
-        <div class="gig-badge">Pro</div>
-    </div>
-
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">MP</div>
-            <h4>JOYpixel</h4>
-            <span class="seller-level">Level 2</span>
-        </div>
-
-        <h3 class="gig-title">I will design and develop a luxury mobile app UI UX</h3>
-
-        <p class="gig-description">
-            High-end mobile app design and development with elegant UI, fast loading,
-            and pixel-perfect user experience.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>4.8</span>
-            <span class="rating-count">(1.2k)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $199</div>
-        </div>
-    </div>
-</div>
-
+                <!-- Gig Card 3 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        🖌️
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">MP</div>
+                            <h4>Patrik</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                       <h3 class="gig-title">Cross-Platform App Development</h1>
+                              <p class="gig-description">Develop apps that work seamlessly on iOS and Android using Flutter, React Native, or Xamarin.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(956)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $85</div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Gig Card 4 -->
                 <div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-        📱
-    </div>
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">AL</div>
-            <h4>AkashCreates</h4>
-            <span class="seller-level">Level 1</span>
-        </div>
+                    <div class="gig-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        🎯
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">AL</div>
+                            <h4>Krish</h4>
+                            <span class="seller-level">Level 1</span>
+                        </div>
+                        <h3 class="gig-title">UI/UX Design for Mobile Apps</h3>
+                           <p class="gig-description">Design visually appealing and intuitive interfaces that delight users and improve engagement.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.8</span>
+                            <span class="rating-count">(742)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $55</div>
+                        </div>
+                    </div>
+                </div>
 
-        <h3 class="gig-title">I will develop a modern, responsive mobile app</h3>
-
-        <p class="gig-description">
-            High-quality Android and iOS apps with clean UI, smooth performance,
-            and fully responsive layouts.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>4.8</span>
-            <span class="rating-count">(742)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $99</div>
-        </div>
-    </div>
-</div>
-
-<!-- Gig Card 5 -->
-<div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-        🚀
-        <div class="gig-badge">Express</div>
-    </div>
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">EM</div>
-            <h4>jaygraphics</h4>
-            <span class="seller-level">Top Rated</span>
-        </div>
-
-        <h3 class="gig-title">I will build a professional Android or iOS mobile app</h3>
-
-        <p class="gig-description">
-            A fully functional, scalable mobile app with premium UI, fast performance,
-            and App Store / Play Store ready build.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>4.9</span>
-            <span class="rating-count">(1.2k)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $149</div>
-        </div>
-    </div>
-</div>
-
+                <!-- Gig Card 5 -->
+                <div class="gig-card">
+                    <div class="gig-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        💎
+                        <div class="gig-badge">Express</div>
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">EM</div>
+                            <h4>emmagraphics</h4>
+                            <span class="seller-level">Top Rated</span>
+                        </div>
+                        <h3 class="gig-title">I will design a App in 48 hours</h3>
+                        <p class="gig-description">Fast turnaround App design with modern effects and multiple model.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>4.9</span>
+                            <span class="rating-count">(1.2k)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $75</div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Gig Card 6 -->
                 <div class="gig-card">
-    <div class="gig-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
-        📱
+                    <div class="gig-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                        🌟
+                    </div>
+                    <div class="gig-content">
+                        <div class="seller-info">
+                            <div class="seller-avatar">DK</div>
+                            <h4>davidkreativ</h4>
+                            <span class="seller-level">Level 2</span>
+                        </div>
+                        <h3 class="gig-title"> Mobile Game Development</h3>
+                        <p class="gig-description">Create engaging 2D and 3D mobile games that keep users coming back for more.</p>
+                        <div class="gig-rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0</span>
+                            <span class="rating-count">(834)</span>
+                        </div>
+                        <div class="gig-footer">
+                            <button class="favorite-btn">♡</button>
+                            <div class="price">From $70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="gig-content">
-        <div class="seller-info">
-            <div class="seller-avatar">DK</div>
-            <h4>davidkreativ</h4>
-            <span class="seller-level">Level 2</span>
-        </div>
-
-        <h3 class="gig-title">I will develop a full-stack mobile app with modern technologies</h3>
-
-        <p class="gig-description">
-            Custom Android and iOS app development with clean architecture,
-            fast performance, secure backend, and scalable APIs.
-        </p>
-
-        <div class="gig-rating">
-            ⭐⭐⭐⭐⭐ <span>5.0</span>
-            <span class="rating-count">(834)</span>
-        </div>
-
-        <div class="gig-footer">
-            <button class="favorite-btn">♡</button>
-            <div class="price">From $129</div>
-        </div>
-    </div>
-</div>
 
     <!-- Info Section -->
     <section class="info-section">
-    <div class="info-container">
-        <h2 class="section-title">Why Choose Our Mobile App Developers?</h2>
-        <div class="info-grid">
-
-            <div class="info-card">
-                <div class="info-icon">📱</div>
-                <h3>Modern & Intuitive UI</h3>
-                <p>Beautiful, user-friendly mobile app designs crafted with the latest UI/UX trends to maximize user engagement.</p>
+        <div class="info-container">
+            <h2 class="section-title">Why Choose Our Mobile App Development?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🎨</div>
+                    <h3>Creative Excellence</h3>
+                    <p>Work with award-winning designers who understand brand identity and create app that truly represent your vision.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Get your logo design within 24-72 hours with our express delivery options available from most sellers.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🔄</div>
+                    <h3>Unlimited Revisions</h3>
+                    <p>Most packages include unlimited revisions to ensure you get exactly what you envisioned for your brand.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Quality App design starting from just $5. Find the perfect designer that fits your budget and requirements.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <h3>Satisfaction Guaranteed</h3>
+                    <p>100% money-back guarantee if you're not satisfied. Our designers are committed to your success.</p>
+                </div>
             </div>
-
-            <div class="info-card">
-                <div class="info-icon">⚡</div>
-                <h3>Fast Development</h3>
-                <p>Quick turnaround on Android and iOS app development—from MVPs to full-scale applications.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">🔧</div>
-                <h3>Custom App Features</h3>
-                <p>From real-time chat to payments, APIs, and dashboards—we build fully customized app functionality.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">📲</div>
-                <h3>Cross-Platform Support</h3>
-                <p>Your app will work seamlessly on Android and iOS devices, ensuring consistent performance everywhere.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">💰</div>
-                <h3>Flexible Pricing</h3>
-                <p>Affordable mobile app development packages designed to fit startups, businesses, and enterprises.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">🛡️</div>
-                <h3>Quality & Support</h3>
-                <p>We offer revisions, testing, and post-launch support to ensure your mobile app exceeds expectations.</p>
-            </div>
-
         </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+        <div class="packages-container">
+            <h2 class="section-title">Popular Mobile App Developemnt Design Packages</h2>
+            <div class="packages-grid">
+                <!-- Basic Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Basic</h3>
+                        <div class="package-price">$45</div>
+                        <p>3 Days Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>1 App Concept</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>3 Revisions</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>High Resolution Files</span>
+                        </div>
+                        
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Commercial Use</span>
+                        </div>
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Standard Package (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3>Standard</h3>
+                        <div class="package-price">$85</div>
+                        <p>2 Days Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>3 App Concepts</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unlimited Revisions</span>
+                        </div>
+                       
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>All File Formats</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Social Media Kit</span>
+                        </div>
+                       
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Premium</h3>
+                        <div class="package-price">$150</div>
+                        <p>1 Day Delivery</p>
+                    </div>
+                    <div class="package-body">
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>5 App Concepts</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unlimited Revisions</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Complete Brand Identity</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Business App Design</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Letterhead Design</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Social Media Kit</span>
+                        </div>
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Brand Style Guide</span>
+                        </div>
+                        <button class="btn-package">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+    <div class="faq-question">
+        <span>What platforms will my app be developed for?</span>
+        <span class="faq-icon">▼</span>
     </div>
-</section>
-
-
-
-   <!-- Packages Section -->
-<section class="packages-section">
-    <div class="packages-container">
-        <h2 class="section-title">Popular Mobile App Development Packages</h2>
-        <div class="packages-grid">
-
-            <!-- Basic Package -->
-            <div class="package-card">
-                <div class="package-header">
-                    <h3>Basic</h3>
-                    <div class="package-price">$199</div>
-                    <p>5 Days Delivery</p>
-                </div>
-                <div class="package-body">
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Single Platform App (Android or iOS)</span>
-                    </div>
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Up to 3 Screens</span>
-                    </div>
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Clean & Modern UI</span>
-                    </div>
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Basic App Functionality</span>
-                    </div>
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Free Support for 7 Days</span>
-                    </div>
-                    <button class="btn-package">Order Now</button>
-                </div>
-            </div>
-
-            <!-- Standard Package (Featured) -->
-            <div class="package-card featured">
-                <div class="package-header">
-                    <h3>Standard</h3>
-                    <div class="package-price">$399</div>
-                    <p>7 Days Delivery</p>
-                </div>
-                <div class="package-body">
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Cross-Platform App (Android + iOS)</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Up to 6 Screens</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unlimited Revisions</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>API Integration</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Optimized Performance</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Play Store / App Store Ready Build</span>
-                    </div>
-
-                    <button class="btn-package">Order Now</button>
-                </div>
-            </div>
-
-            <!-- Premium Package -->
-            <div class="package-card">
-                <div class="package-header">
-                    <h3>Premium</h3>
-                    <div class="package-price">$699</div>
-                    <p>10 Days Delivery</p>
-                </div>
-                <div class="package-body">
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Advanced Mobile App (Android + iOS)</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unlimited Screens</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unlimited Revisions</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Authentication (Login, Signup, Social)</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Payment Gateway Integration</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Admin Panel / Backend API</span>
-                    </div>
-
-                    <div class="package-feature">
-                        <span class="check-icon">✓</span>
-                        <span>App Store & Play Store Submission Support</span>
-                    </div>
-
-                    <button class="btn-package">Order Now</button>
-                </div>
-            </div>
-
-        </div>
+    <div class="faq-answer">
+        Apps can be developed for iOS, Android, or both. Cross-platform frameworks like Flutter and React Native allow your app to run seamlessly on multiple devices.
     </div>
-</section>
+</div>
 
-
-    <<!-- FAQ Section -->
-<section class="faq-section">
-    <div class="faq-container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>What technologies do you use for mobile app development?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                We use modern mobile technologies such as Flutter, React Native, Swift (iOS), Kotlin (Android), and Firebase or Node.js for backend services. You can also request a specific technology.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>How long does it take to develop a mobile app?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                Development time depends on app complexity and package selection. Basic apps usually take 5–7 days, Standard apps 7–10 days, and advanced apps may require 10–20 days.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>Can I request revisions?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                Yes! All packages include revisions. Standard and Premium packages offer unlimited revisions until you are fully satisfied with your app.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>Will my app work on both Android and iOS?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                Yes. We build apps for Android, iOS, or both platforms. Cross-platform apps ensure smooth performance and a consistent user experience across devices.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>Will you publish my app to the App Store and Play Store?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                We provide full guidance and support for App Store and Play Store submission. Final approval depends on store policies, but we ensure your app meets all requirements.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>What information do I need to provide?</span>
-                <span class="faq-icon">▼</span>
-            </div>
-            <div class="faq-answer">
-                We’ll need your app idea, target audience, required features, preferred design style, platform choice (Android/iOS), and any reference apps you like. Clear details help us build exactly what you need.
-            </div>
-        </div>
+<div class="faq-item">
+    <div class="faq-question">
+        <span>How long does it take to develop an app?</span>
+        <span class="faq-icon">▼</span>
     </div>
-</section>
+    <div class="faq-answer">
+        Development time depends on app complexity. Simple apps may take 2-4 weeks, while complex apps with advanced features can take several months.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        <span>Can I request revisions or updates?</span>
+        <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-answer">
+        Yes! Most developers include multiple revisions during development. You can also request updates or additional features after launch.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        <span>Will I own the app and source code?</span>
+        <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-answer">
+        Yes, after the project is completed and paid for, you receive full ownership of the app and its source code. You can use and distribute it freely.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        <span>What information should I provide?</span>
+        <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-answer">
+        Provide details like app purpose, target audience, desired features, design preferences, and platform requirements. The more information you give, the better the app will match your vision.
+    </div>
+</div>
 
 
     <!-- Footer -->
