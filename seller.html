@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Seller - LanceFree</title>
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background: #f9fafb;
+        }
+
+        /* Dark Theme Styles */
+        body.dark-theme {
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        body.dark-theme header {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(143, 0, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(143, 0, 255, 0.3);
+        }
+
+        body.dark-theme .logo {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .logo-text {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .logo-text .purple {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .search-bar {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .search-bar::placeholder {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .search-btn {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .header-link {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .btn-signin {
+            border-color: #8f00ff;
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-join {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .hero-section {
+            background: linear-gradient(135deg, #1a0033 0%, #2d004d 100%);
+        }
+
+        body.dark-theme .step-card,
+        body.dark-theme .benefit-card,
+        body.dark-theme .testimonial-card,
+        body.dark-theme .stat-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .step-number,
+        body.dark-theme .benefit-icon {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .section-title,
+        body.dark-theme .step-card h3,
+        body.dark-theme .benefit-card h3,
+        body.dark-theme .testimonial-name {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .step-card p,
+        body.dark-theme .benefit-card p,
+        body.dark-theme .testimonial-text {
+            color: #94a3b8;
+        }
+
+        body.dark-theme .cta-section {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        body.dark-theme .btn-cta {
+            background: #8f00ff;
+        }
+
+        body.dark-theme footer {
+            background: rgba(5, 5, 5, 0.95);
+            border-top: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo-text .purple {
+            color: #8b5cf6;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8b5cf6;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: #1f2937;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #374151;
+            transform: rotate(180deg);
+        }
+
+        .btn-signin {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid #8b5cf6;
+            color: #8b5cf6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-join {
+            padding: 0.6rem 1.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .btn-cta {
+            padding: 1rem 3rem;
+            background: white;
+            color: #8b5cf6;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 5%;
+            background: white;
+        }
+
+        body.dark-theme .stats-section {
+            background: #0a0a0a;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        body.dark-theme .stat-label {
+            color: #94a3b8;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        body.dark-theme .steps-section {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        body.dark-theme .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .step-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        body.dark-theme .benefits-section {
+            background: #0a0a0a;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        .benefit-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        body.dark-theme .testimonials-section {
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-rating {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        body.dark-theme .testimonial-role {
+            color: #94a3b8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                margin: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .steps-grid,
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">L</div>
+                <div class="logo-text"><span class="purple">Lance</span>Free</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for services...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="header-link">Find Work</a>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-join">Join</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Turn Your Skills Into Income</h1>
+            <p>Join thousands of freelancers earning money doing what they love. Start selling your services on LanceFree today and build the freelance career you've always wanted.</p>
+            <button class="btn-cta">Start Selling Now</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Active Sellers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$1.2B+</div>
+                <div class="stat-label">Earned by Sellers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10M+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.9/5</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="steps-container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Getting started is simple. Follow these easy steps to begin your freelancing journey.</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up for free and create your seller profile. Add your skills, experience, and portfolio to stand out from the crowd.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Create Your Gig</h3>
+                    <p>Set up your service offerings with clear descriptions, pricing, and delivery times. Showcase what makes your service unique.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Orders</h3>
+                    <p>Clients browse and purchase your gigs. You'll receive notifications when someone orders your service.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Deliver Quality Work</h3>
+                    <p>Complete the work according to the requirements. Communicate with clients and deliver on time to build your reputation.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Get Paid</h3>
+                    <p>Once the client approves your work, funds are released to your account. Withdraw your earnings anytime.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Build Your Business</h3>
+                    <p>Earn reviews, level up your seller status, and grow your freelance business with repeat clients and referrals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <h2 class="section-title">Why Sell on LanceFree?</h2>
+            <p class="section-subtitle">Everything you need to succeed as a freelancer</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Be Your Own Boss</h3>
+                    <p>Set your own schedule, choose your clients, and work from anywhere in the world. You're in complete control of your business.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Earn More Money</h3>
+                    <p>Keep 80% of every transaction. Set your own prices and increase your earnings as you build your reputation and expertise.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Global Marketplace</h3>
+                    <p>Connect with clients from around the world. Expand your reach beyond your local market and work with international brands.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Secure Payments</h3>
+                    <p>Get paid safely and on time with our secure payment protection system. Your earnings are guaranteed when you deliver quality work.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Grow Your Skills</h3>
+                    <p>Access resources, tutorials, and seller success programs to improve your skills and grow your freelance business.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is always here to help you succeed. Get assistance whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">Hear from freelancers who are thriving on LanceFree</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"LanceFree changed my life. I went from a 9-5 job to running my own design business. In my first year, I've earned over $80k and have complete freedom over my schedule."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SC</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Chen</div>
+                            <div class="testimonial-role">Graphic Designer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The platform is incredibly easy to use and the clients are great. I love being able to showcase my portfolio and connect with businesses that value quality work."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MP</div>
+                        <div>
+                            <div class="testimonial-name">Michael Park</div>
+                            <div class="testimonial-role">Web Developer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Starting as a new seller was smooth and I got my first order within 48 hours. The support team helped me optimize my gig and now I'm a Top Rated Seller!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ER</div>
+                        <div>
+                            <div class="testimonial-name">Emma Rodriguez</div>
+                            <div class="testimonial-role">Content Writer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Join LanceFree today and start building the freelance career you've always dreamed of. It's free to sign up and takes less than 5 minutes.</p>
+            <button class="btn-cta">Create Your Seller Account</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <a href="#">Graphics & Design</a>
+                <a href="#">Digital Marketing</a>
+                <a href="#">Writing & Translation</a>
+                <a href="#">Video & Animation</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Careers</a>
+                <a href="#">Press & News</a>
+                <a href="#">Partnerships</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help & Support</a>
+                <a href="#">Trust & Safety</a>
+                <a href="#">Selling on LanceFree</a>
+                <a href="#">Buying on LanceFree</a>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a href="#">Events</a>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Affiliates</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LanceFree. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // CTA button functionality
+        const ctaButtons = document.querySelectorAll('.btn-cta');
+        ctaButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Redirecting to seller registration... (This would take you to the sign-up page)');
+            });
+        });
+
+        // Search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchBtn.addEventListener('click', () => {
+            if (searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+
+        // Smooth scroll animation for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.step-card, .benefit-card, .testimonial-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Header buttons functionality
+        document.querySelector('.btn-signin').addEventListener('click', () => {
+            alert('Redirecting to sign in page...');
+        });
+
+        document.querySelector('.btn-join').addEventListener('click', () => {
+            alert('Redirecting to registration page...');
+        });
+    </script>
+</body>
+</html>
