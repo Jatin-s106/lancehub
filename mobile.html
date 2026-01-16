@@ -574,30 +574,20 @@
             cursor: pointer;
         }
 
-        .gigs-grid { /* or the parent div that contains all .gig-card */
-    display: flex;
-    flex-wrap: wrap;       /* allows cards to wrap to next line */
-    gap: 2rem;             /* space between cards */
-    justify-content: center; /* center horizontally on desktop */
-}
+        .gigs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
 
-.gig-card {
-    flex: 1 1 300px;  /* each card takes at least 300px, grows if space available */
-    max-width: 300px; /* optional: keeps card width consistent */
-}
-
-/* Mobile view: stack vertically */
-@media (max-width: 768px) {
-    .gigs-grid {
-        flex-direction: column; /* stack cards vertically */
-        align-items: center;    /* center them */
-    }
-
-    .gig-card {
-        max-width: 90%; /* optional: make them a bit narrower on mobile */
-    }
-}
-
+        .gig-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
         .gig-card:hover {
             transform: translateY(-5px);
@@ -1024,7 +1014,7 @@
             </div>
 
             <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search for mobile app devlopment services...">
+                <input type="text" class="search-bar" placeholder="Search for logo design services...">
                 <button class="search-btn">Search</button>
             </div>
 
@@ -1049,8 +1039,8 @@
     <!-- Hero Section -->
     <section class="hero-logo">
         <div class="hero-logo-content">
-            <h1>Professional Mobile App Devlopment Services</h1>
-           <p>Develop cross-platform apps that work flawlessly on both iOS and Android, using the latest technologies.</p>
+            <h1>Professional Logo Design Services</h1>
+            <p>Get a unique, memorable logo that represents your brand perfectly. Work with top-rated designers from around the world.</p>
         </div>
     </section>
 
@@ -1107,46 +1097,41 @@
             </div>
 
             <div class="filter-section">
-    <h3>Mobile App Type</h3>
-    <div class="checkbox-group">
-        <label class="checkbox-label">
-            <input type="checkbox"> iOS App
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox"> Android App
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox"> Cross-Platform
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox"> Mobile Game
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox"> UI/UX Design
-        </label>
-        <label class="checkbox-label">
-            <input type="checkbox"> App Maintenance
-        </label>
-    </div>
-</div>
-
+                <h3>Logo Style</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Minimalist
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Modern
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Vintage
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> 3D
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Hand Drawn
+                    </label>
+                </div>
+            </div>
         </aside>
 
         <!-- Gigs Section -->
         <section class="gigs-section">
-    <div class="results-header">
-        <div class="results-count">
-            <strong>8,432</strong> mobile app development services available
-        </div>
-        <select class="sort-dropdown">
-            <option>Relevance</option>
-            <option>Best Selling</option>
-            <option>Newest Arrivals</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-        </select>
-    </div>
-</section>
+            <div class="results-header">
+                <div class="results-count">
+                    <strong>12,847</strong> logo design services available
+                </div>
+                <select class="sort-dropdown">
+                    <option>Relevance</option>
+                    <option>Best Selling</option>
+                    <option>Newest Arrivals</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
 
             <div class="gigs-grid">
                 <!-- Gig Card 1 -->
@@ -1158,12 +1143,11 @@
                     <div class="gig-content">
                         <div class="seller-info">
                             <div class="seller-avatar">JD</div>
-                            <h4>JacobDev</h4>
+                            <h4>johndesigns</h4>
                             <span class="seller-level">Level 2</span>
                         </div>
-                        <h3 class="gig-title">iOS App Development</h3>
-                           <p class="gig-description">Build powerful and user-friendly iPhone and iPad apps with expert iOS developers.</p>
-
+                        <h3 class="gig-title">I will design a modern minimalist logo for your brand</h3>
+                        <p class="gig-description">Professional logo design with unlimited revisions and source files included.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>5.0</span>
                             <span class="rating-count">(2.4k)</span>
@@ -1184,11 +1168,11 @@
                     <div class="gig-content">
                         <div class="seller-info">
                             <div class="seller-avatar">SC</div>
-                            <h4>Sahil</h4>
+                            <h4>sarahcreates</h4>
                             <span class="seller-level">Top Rated</span>
                         </div>
-                        <h3 class="gig-title">Android App Development</h3>
-                            <p class="gig-description">Create responsive and high-performance Android apps tailored for your business.</p>
+                        <h3 class="gig-title">I will create a unique logo with 3 concepts and revisions</h3>
+                        <p class="gig-description">Get 3 unique concepts to choose from with unlimited revisions until perfect.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>4.9</span>
                             <span class="rating-count">(1.8k)</span>
@@ -1208,11 +1192,11 @@
                     <div class="gig-content">
                         <div class="seller-info">
                             <div class="seller-avatar">MP</div>
-                            <h4>Patrik</h4>
+                            <h4>mikepixel</h4>
                             <span class="seller-level">Level 2</span>
                         </div>
-                       <h3 class="gig-title">Cross-Platform App Development</h1>
-                              <p class="gig-description">Develop apps that work seamlessly on iOS and Android using Flutter, React Native, or Xamarin.</p>
+                        <h3 class="gig-title">I will design a luxury logo for premium brands</h3>
+                        <p class="gig-description">High-end logo design for luxury brands with premium quality and elegance.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>5.0</span>
                             <span class="rating-count">(956)</span>
@@ -1232,11 +1216,11 @@
                     <div class="gig-content">
                         <div class="seller-info">
                             <div class="seller-avatar">AL</div>
-                            <h4>Krish</h4>
+                            <h4>alexlogo</h4>
                             <span class="seller-level">Level 1</span>
                         </div>
-                        <h3 class="gig-title">UI/UX Design for Mobile Apps</h3>
-                           <p class="gig-description">Design visually appealing and intuitive interfaces that delight users and improve engagement.</p>
+                        <h3 class="gig-title">I will design a hand drawn vintage logo</h3>
+                        <p class="gig-description">Custom hand-drawn logos with a vintage feel for unique brand identity.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>4.8</span>
                             <span class="rating-count">(742)</span>
@@ -1260,8 +1244,8 @@
                             <h4>emmagraphics</h4>
                             <span class="seller-level">Top Rated</span>
                         </div>
-                        <h3 class="gig-title">I will design a App in 48 hours</h3>
-                        <p class="gig-description">Fast turnaround App design with modern effects and multiple model.</p>
+                        <h3 class="gig-title">I will design a 3D logo in 24 hours</h3>
+                        <p class="gig-description">Fast turnaround 3D logo design with modern effects and multiple file formats.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>4.9</span>
                             <span class="rating-count">(1.2k)</span>
@@ -1284,8 +1268,8 @@
                             <h4>davidkreativ</h4>
                             <span class="seller-level">Level 2</span>
                         </div>
-                        <h3 class="gig-title"> Mobile Game Development</h3>
-                        <p class="gig-description">Create engaging 2D and 3D mobile games that keep users coming back for more.</p>
+                        <h3 class="gig-title">I will design a mascot logo for sports teams</h3>
+                        <p class="gig-description">Creative mascot logos perfect for sports teams, gaming, and eSports brands.</p>
                         <div class="gig-rating">
                             ⭐⭐⭐⭐⭐ <span>5.0</span>
                             <span class="rating-count">(834)</span>
@@ -1303,12 +1287,12 @@
     <!-- Info Section -->
     <section class="info-section">
         <div class="info-container">
-            <h2 class="section-title">Why Choose Our Mobile App Development?</h2>
+            <h2 class="section-title">Why Choose Our Logo Designers?</h2>
             <div class="info-grid">
                 <div class="info-card">
                     <div class="info-icon">🎨</div>
                     <h3>Creative Excellence</h3>
-                    <p>Work with award-winning designers who understand brand identity and create app that truly represent your vision.</p>
+                    <p>Work with award-winning designers who understand brand identity and create logos that truly represent your vision.</p>
                 </div>
                 <div class="info-card">
                     <div class="info-icon">⚡</div>
@@ -1320,11 +1304,15 @@
                     <h3>Unlimited Revisions</h3>
                     <p>Most packages include unlimited revisions to ensure you get exactly what you envisioned for your brand.</p>
                 </div>
-                
+                <div class="info-card">
+                    <div class="info-icon">📁</div>
+                    <h3>All File Formats</h3>
+                    <p>Receive your logo in all necessary formats: AI, EPS, PNG, JPG, PDF, and more for all your branding needs.</p>
+                </div>
                 <div class="info-card">
                     <div class="info-icon">💰</div>
                     <h3>Affordable Pricing</h3>
-                    <p>Quality App design starting from just $5. Find the perfect designer that fits your budget and requirements.</p>
+                    <p>Quality logo design starting from just $5. Find the perfect designer that fits your budget and requirements.</p>
                 </div>
                 <div class="info-card">
                     <div class="info-icon">🏆</div>
@@ -1338,7 +1326,7 @@
     <!-- Packages Section -->
     <section class="packages-section">
         <div class="packages-container">
-            <h2 class="section-title">Popular Mobile App Developemnt Design Packages</h2>
+            <h2 class="section-title">Popular Logo Design Packages</h2>
             <div class="packages-grid">
                 <!-- Basic Package -->
                 <div class="package-card">
@@ -1350,7 +1338,7 @@
                     <div class="package-body">
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
-                            <span>1 App Concept</span>
+                            <span>1 Logo Concept</span>
                         </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
@@ -1360,7 +1348,10 @@
                             <span class="check-icon">✓</span>
                             <span>High Resolution Files</span>
                         </div>
-                        
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>PNG & JPG Formats</span>
+                        </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
                             <span>Commercial Use</span>
@@ -1379,13 +1370,16 @@
                     <div class="package-body">
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
-                            <span>3 App Concepts</span>
+                            <span>3 Logo Concepts</span>
                         </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
                             <span>Unlimited Revisions</span>
                         </div>
-                       
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Vector Source Files (AI, EPS)</span>
+                        </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
                             <span>All File Formats</span>
@@ -1394,7 +1388,10 @@
                             <span class="check-icon">✓</span>
                             <span>Social Media Kit</span>
                         </div>
-                       
+                        <div class="package-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Print Ready Files</span>
+                        </div>
                         <button class="btn-package">Order Now</button>
                     </div>
                 </div>
@@ -1409,7 +1406,7 @@
                     <div class="package-body">
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
-                            <span>5 App Concepts</span>
+                            <span>5 Logo Concepts</span>
                         </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
@@ -1421,7 +1418,7 @@
                         </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
-                            <span>Business App Design</span>
+                            <span>Business Card Design</span>
                         </div>
                         <div class="package-feature">
                             <span class="check-icon">✓</span>
@@ -1448,55 +1445,56 @@
             <h2 class="section-title">Frequently Asked Questions</h2>
             
             <div class="faq-item">
-    <div class="faq-question">
-        <span>What platforms will my app be developed for?</span>
-        <span class="faq-icon">▼</span>
-    </div>
-    <div class="faq-answer">
-        Apps can be developed for iOS, Android, or both. Cross-platform frameworks like Flutter and React Native allow your app to run seamlessly on multiple devices.
-    </div>
-</div>
+                <div class="faq-question">
+                    <span>What file formats will I receive?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Most logo designers provide PNG, JPG, and PDF formats in the basic package. Premium packages include vector files (AI, EPS, SVG) which can be scaled to any size without losing quality.
+                </div>
+            </div>
 
-<div class="faq-item">
-    <div class="faq-question">
-        <span>How long does it take to develop an app?</span>
-        <span class="faq-icon">▼</span>
-    </div>
-    <div class="faq-answer">
-        Development time depends on app complexity. Simple apps may take 2-4 weeks, while complex apps with advanced features can take several months.
-    </div>
-</div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does it take to get a logo?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Delivery times vary by seller and package. Express options can deliver in 24 hours, while standard packages typically take 2-5 days. Custom projects may take longer depending on complexity.
+                </div>
+            </div>
 
-<div class="faq-item">
-    <div class="faq-question">
-        <span>Can I request revisions or updates?</span>
-        <span class="faq-icon">▼</span>
-    </div>
-    <div class="faq-answer">
-        Yes! Most developers include multiple revisions during development. You can also request updates or additional features after launch.
-    </div>
-</div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I request revisions?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Most packages include multiple revisions. Standard and Premium packages often include unlimited revisions to ensure you're completely satisfied with the final design.
+                </div>
+            </div>
 
-<div class="faq-item">
-    <div class="faq-question">
-        <span>Will I own the app and source code?</span>
-        <span class="faq-icon">▼</span>
-    </div>
-    <div class="faq-answer">
-        Yes, after the project is completed and paid for, you receive full ownership of the app and its source code. You can use and distribute it freely.
-    </div>
-</div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will I own the copyright to my logo?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, once the project is completed and paid for, you receive full commercial rights and copyright to your logo. You can use it however you wish for your business.
+                </div>
+            </div>
 
-<div class="faq-item">
-    <div class="faq-question">
-        <span>What information should I provide?</span>
-        <span class="faq-icon">▼</span>
-    </div>
-    <div class="faq-answer">
-        Provide details like app purpose, target audience, desired features, design preferences, and platform requirements. The more information you give, the better the app will match your vision.
-    </div>
-</div>
-
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What information do I need to provide?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    You should provide your company name, industry, target audience, preferred colors, style preferences, and any specific ideas or inspiration. The more details you provide, the better the designer can meet your needs.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
