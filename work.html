@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Gig - LanceFree</title>
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background: #f9fafb;
+        }
+
+        /* Dark Theme Styles */
+        body.dark-theme {
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        body.dark-theme header {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .logo {
+            background: linear-gradient(135deg, #8f00ff, #d90bfd);
+        }
+
+        body.dark-theme .logo-text {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .logo-text .purple {
+            color: #8f00ff;
+        }
+
+        body.dark-theme .search-bar {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .header-link {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .btn-signin {
+            border-color: #8f00ff;
+            color: #8f00ff;
+        }
+
+        body.dark-theme .btn-join {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .hero-section {
+            background: linear-gradient(135deg, #1a0033 0%, #2d004d 100%);
+        }
+
+        body.dark-theme .progress-bar {
+            background: rgba(20, 20, 20, 0.8);
+        }
+
+        body.dark-theme .progress-step.completed {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .form-container,
+        body.dark-theme .preview-container {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .form-section {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .section-title,
+        body.dark-theme .form-group label {
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .form-input,
+        body.dark-theme .form-textarea,
+        body.dark-theme .form-select {
+            background: rgba(40, 40, 40, 0.8);
+            border-color: rgba(143, 0, 255, 0.3);
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .image-upload-area {
+            background: rgba(30, 30, 30, 0.6);
+            border-color: rgba(143, 0, 255, 0.3);
+        }
+
+        body.dark-theme .pricing-tier {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme .btn-primary {
+            background: #8f00ff;
+        }
+
+        body.dark-theme .preview-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        body.dark-theme footer {
+            background: rgba(5, 5, 5, 0.95);
+            border-top: 1px solid rgba(143, 0, 255, 0.2);
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo-text .purple {
+            color: #8b5cf6;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8b5cf6;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: #1f2937;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: #374151;
+            transform: rotate(180deg);
+        }
+
+        .btn-signin {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid #8b5cf6;
+            color: #8b5cf6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-join {
+            padding: 0.6rem 1.5rem;
+            background: #8b5cf6;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: white;
+            padding: 2rem 5%;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        body.dark-theme .progress-container {
+            background: rgba(15, 15, 15, 0.9);
+            border-bottom-color: rgba(143, 0, 255, 0.2);
+        }
+
+        .progress-bar {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e5e5e5;
+            z-index: 0;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #e5e5e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-step.active .step-number {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .progress-step.completed .step-number {
+            background: #10b981;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        body.dark-theme .step-label {
+            color: #94a3b8;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .form-section {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* Image Upload */
+        .image-upload-area {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .image-upload-area:hover {
+            border-color: #8b5cf6;
+            background: #f5f3ff;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+        }
+
+        .uploaded-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .uploaded-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: #e5e5e5;
+        }
+
+        .uploaded-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        /* Tags Input */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            min-height: 45px;
+        }
+
+        .tag {
+            background: #8b5cf6;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-remove {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tag-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            min-width: 120px;
+        }
+
+        /* Pricing Tiers */
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .pricing-tier {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-tier.active {
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .tier-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b5cf6;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #7c3aed;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            color: #4b5563;
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+        }
+
+        /* Preview Container */
+        .preview-container {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .preview-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .preview-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .preview-content {
+            padding: 1.5rem;
+        }
+
+        .preview-seller {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-avatar {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .preview-gig-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-theme .preview-gig-title {
+            color: #e2e8f0;
+        }
+
+        .preview-description {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        body.dark-theme .preview-description {
+            color: #94a3b8;
+        }
+
+        .preview-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #8b5cf6;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-container {
+                position: static;
+            }
+
+            .pricing-tiers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                margin: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .progress-bar {
+                overflow-x: auto;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo-section">
+                <div class="logo">L</div>
+                <div class="logo-text"><span class="purple">Lance</span>Free</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for services...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="header-link">Dashboard</a>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-join">Join</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Create a New Gig</h1>
+        <p>Share your skills and start earning by creating your first service offering</p>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Overview</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">2</div>
+                <div class="step-label">Pricing</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">3</div>
+                <div class="step-label">Description</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">4</div>
+                <div class="step-label">Gallery</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">5</div>
+                <div class="step-label">Publish</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Basic Information -->
+            <div class="form-section">
+                <h2 class="section-title">Basic Information</h2>
+
+                <div class="form-group">
+                    <label>Gig Title <span class="required">*</span></label>
+                    <input type="text" class="form-input" id="gigTitle" placeholder="I will create a professional logo design" maxlength="80">
+                    <div class="char-count"><span id="titleCount">0</span>/80</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Category <span class="required">*</span></label>
+                    <select class="form-select" id="gigCategory">
+                        <option value="">Select a category</option>
+                        <option value="graphics">Graphics & Design</option>
+                        <option value="digital-marketing">Digital Marketing</option>
+                        <option value="writing">Writing & Translation</option>
+                        <option value="video">Video & Animation</option>
+                        <option value="music">Music & Audio</option>
+                        <option value="programming">Programming & Tech</option>
+                        <option value="business">Business</option>
+                        <option value="lifestyle">Lifestyle</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Subcategory <span class="required">*</span></label>
+                    <select class="form-select" id="gigSubcategory">
+                        <option value="">Select a subcategory</option>
+                        <option value="logo-design">Logo Design</option>
+                        <option value="brand-identity">Brand Identity</option>
+                        <option value="web-design">Web Design</option>
+                        <option value="illustration">Illustration</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Search Tags</label>
+                    <div class="tags-container" id="tagsContainer">
+                        <input type="text" class="tag-input" id="tagInput" placeholder="Add tags (press Enter)">
+                    </div>
+                    <div class="help-text">Add up to 5 tags to help buyers find your gig</div>
+                </div>
+            </div>
+
+            <!-- Pricing & Packages -->
+            <div class="form-section">
+                <h2 class="section-title">Pricing & Packages</h2>
+                
+                <div class="pricing-tiers">
+                    <!-- Basic Package -->
+                    <div class="pricing-tier active" data-tier="basic">
+                        <div class="tier-header">
+                            <div class="tier-name">Basic</div>
+                            <div class="tier-price">$<input type="number" value="25" style="width: 60px; border: none; text-align: center; font-size: 2rem; font-weight: 700; color: #8b5cf6;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Package Name</label>
+                            <input type="text" class="form-input" placeholder="Basic Package">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-textarea" rows="3" placeholder="What's included?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Time</label>
+                            <select class="form-select">
+                                <option>1 Day</option>
+                                <option>2 Days</option>
+                                <option selected>3 Days</option>
+                                <option>5 Days</option>
+                                <option>7 Days</option>
+                                <option>14 Days</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Revisions</label>
+                            <select class="form-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                                <option>5</option>
+                                <option>Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Standard Package -->
+                    <div class="pricing-tier" data-tier="standard">
+                        <div class="tier-header">
+                            <div class="tier-name">Standard</div>
+                            <div class="tier-price">$<input type="number" value="50" style="width: 60px; border: none; text-align: center; font-size: 2rem; font-weight: 700; color: #8b5cf6;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Package Name</label>
+                            <input type="text" class="form-input" placeholder="Standard Package">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-textarea" rows="3" placeholder="What's included?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Time</label>
+                            <select class="form-select">
+                                <option>1 Day</option>
+                                <option selected>2 Days</option>
+                                <option>3 Days</option>
+                                <option>5 Days</option>
+                                <option>7 Days</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Revisions</label>
+                            <select class="form-select">
+                                <option>3</option>
+                                <option>5</option>
+                                <option selected>Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="pricing-tier" data-tier="premium">
+                        <div class="tier-header">
+                            <div class="tier-name">Premium</div>
+                            <div class="tier-price">$<input type="number" value="100" style="width: 60px; border: none; text-align: center; font-size: 2rem; font-weight: 700; color: #8b5cf6;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Package Name</label>
+                            <input type="text" class="form-input" placeholder="Premium Package">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-textarea" rows="3" placeholder="What's included?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Time</label>
+                            <select class="form-select">
+                                <option selected>1 Day</option>
+                                <option>2 Days</option>
+                                <option>3 Days</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Revisions</label>
+                            <select class="form-select">
+                                <option selected>Unlimited</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description & Requirements -->
+            <div class="form-section">
+                <h2 class="section-title">Description & Requirements</h2>
+
+                <div class="form-group">
+                    <label>Gig Description <span class="required">*</span></label>
+                    <textarea class="form-textarea" id="gigDescription" placeholder="Describe your service in detail..." maxlength="1200" style="min-height: 200px;"></textarea>
+                    <div class="char-count"><span id="descCount">0</span>/1200</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Requirements from Buyer</label>
+                    <textarea class="form-textarea" placeholder="What do you need from the buyer to get started? (e.g., logo preferences, brand colors, etc.)" style="min-height: 120px;"></textarea>
+                    <div class="help-text">This helps buyers know what information to provide when ordering</div>
+                </div>
+
+                <div class="form-group">
+                    <label>FAQ (Optional)</label>
+                    <div id="faqContainer">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" class="form-input" placeholder="Question" style="margin-bottom: 0.5rem;">
+                            <textarea class="form-textarea" rows="2" placeholder="Answer"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn-secondary" onclick="addFAQ()">+ Add Another FAQ</button>
+                </div>
+            </div>
+
+            <!-- Gallery & Media -->
+            <div class="form-section">
+                <h2 class="section-title">Gallery & Media</h2>
+
+                <div class="form-group">
+                    <label>Gig Images <span class="required">*</span></label>
+                    <div class="image-upload-area" onclick="document.getElementById('imageInput').click()">
+                        <div class="upload-icon">📷</div>
+                        <h3>Upload Images</h3>
+                        <p>Drag and drop or click to browse</p>
+                        <p style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">At least 1 image required (max 5 images)</p>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" multiple style="display: none;">
+                    <div class="uploaded-images" id="uploadedImages"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gig Video (Optional)</label>
+                    <input type="text" class="form-input" placeholder="YouTube or Vimeo URL">
+                    <div class="help-text">Add a video to showcase your work (recommended)</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="btn-group">
+                <button class="btn-secondary">Save Draft</button>
+                <button class="btn-primary" onclick="publishGig()">Publish Gig</button>
+            </div>
+        </div>
+
+        <!-- Preview Container -->
+        <div class="preview-container">
+            <h3 class="preview-title">Gig Preview</h3>
+            <div class="preview-card">
+                <div class="preview-image" id="previewImage">
+                    🎨
+                </div>
+                <div class="preview-content">
+                    <div class="preview-seller">
+                        <div class="preview-avatar">YN</div>
+                        <div>
+                            <strong>Your Name</strong>
+                        </div>
+                    </div>
+                    <h3 class="preview-gig-title" id="previewTitle">Your gig title will appear here</h3>
+                    <p class="preview-description" id="previewDesc">Your gig description preview...</p>
+                    <div class="preview-price">From $<span id="previewPrice">25</span></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f0fdf4; border-radius: 8px; border: 1px solid #86efac;">
+                <h4 style="color: #15803d; margin-bottom: 0.5rem;">💡 Tips for Success</h4>
+                <ul style="color: #166534; font-size: 0.9rem; padding-left: 1.2rem;">
+                    <li>Use clear, descriptive titles</li>
+                    <li>Add high-quality images</li>
+                    <li>Offer competitive pricing</li>
+                    <li>Include detailed descriptions</li>
+                    <li>Respond to buyers quickly</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <a href="#">Graphics & Design</a>
+                <a href="#">Digital Marketing</a>
+                <a href="#">Writing & Translation</a>
+                <a href="#">Video & Animation</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Careers</a>
+                <a href="#">Press & News</a>
+                <a href="#">Partnerships</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help & Support</a>
+                <a href="#">Trust & Safety</a>
+                <a href="#">Selling on LanceFree</a>
+                <a href="#">Buying on LanceFree</a>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a href="#">Events</a>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Affiliates</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LanceFree. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Character counters
+        const gigTitle = document.getElementById('gigTitle');
+        const titleCount = document.getElementById('titleCount');
+        const gigDescription = document.getElementById('gigDescription');
+        const descCount = document.getElementById('descCount');
+
+        gigTitle.addEventListener('input', (e) => {
+            titleCount.textContent = e.target.value.length;
+            document.getElementById('previewTitle').textContent = e.target.value || 'Your gig title will appear here';
+        });
+
+        gigDescription.addEventListener('input', (e) => {
+            descCount.textContent = e.target.value.length;
+            const text = e.target.value || 'Your gig description preview...';
+            document.getElementById('previewDesc').textContent = text.substring(0, 120) + (text.length > 120 ? '...' : '');
+        });
+
+        // Tags functionality
+        const tagInput = document.getElementById('tagInput');
+        const tagsContainer = document.getElementById('tagsContainer');
+        let tags = [];
+
+        tagInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && tagInput.value.trim()) {
+                e.preventDefault();
+                if (tags.length < 5) {
+                    const tag = tagInput.value.trim();
+                    tags.push(tag);
+                    addTagElement(tag);
+                    tagInput.value = '';
+                } else {
+                    alert('Maximum 5 tags allowed');
+                }
+            }
+        });
+
+        function addTagElement(tag) {
+            const tagEl = document.createElement('div');
+            tagEl.className = 'tag';
+            tagEl.innerHTML = `
+                ${tag}
+                <span class="tag-remove" onclick="removeTag('${tag}')">×</span>
+            `;
+            tagsContainer.insertBefore(tagEl, tagInput);
+        }
+
+        function removeTag(tag) {
+            tags = tags.filter(t => t !== tag);
+            const tagElements = tagsContainer.querySelectorAll('.tag');
+            tagElements.forEach(el => {
+                if (el.textContent.includes(tag)) {
+                    el.remove();
+                }
+            });
+        }
+
+        // Image upload
+        const imageInput = document.getElementById('imageInput');
+        const uploadedImages = document.getElementById('uploadedImages');
+        let uploadedFiles = [];
+
+        imageInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            
+            files.forEach(file => {
+                if (uploadedFiles.length < 5) {
+                    uploadedFiles.push(file);
+                    
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const imageDiv = document.createElement('div');
+                        imageDiv.className = 'uploaded-image';
+                        imageDiv.innerHTML = `
+                            <img src="${e.target.result}" alt="Uploaded">
+                            <button class="remove-image" onclick="removeImage(${uploadedFiles.length - 1})">×</button>
+                        `;
+                        uploadedImages.appendChild(imageDiv);
+                        
+                        // Update preview with first image
+                        if (uploadedFiles.length === 1) {
+                            document.getElementById('previewImage').innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        function removeImage(index) {
+            uploadedFiles.splice(index, 1);
+            const imageElements = uploadedImages.children;
+            imageElements[index].remove();
+            
+            // Reset preview if no images
+            if (uploadedFiles.length === 0) {
+                document.getElementById('previewImage').innerHTML = '🎨';
+            }
+        }
+
+        // Pricing tier selection
+        const pricingTiers = document.querySelectorAll('.pricing-tier');
+        pricingTiers.forEach(tier => {
+            tier.addEventListener('click', () => {
+                pricingTiers.forEach(t => t.classList.remove('active'));
+                tier.classList.add('active');
+            });
+        });
+
+        // Update preview price
+        document.querySelectorAll('.pricing-tier input[type="number"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                if (e.target.closest('.pricing-tier').classList.contains('active')) {
+                    document.getElementById('previewPrice').textContent = e.target.value;
+                }
+            });
+        });
+
+        // Add FAQ function
+        function addFAQ() {
+            const faqContainer = document.getElementById('faqContainer');
+            const faqItem = document.createElement('div');
+            faqItem.style.marginBottom = '1rem';
+            faqItem.innerHTML = `
+                <input type="text" class="form-input" placeholder="Question" style="margin-bottom: 0.5rem;">
+                <textarea class="form-textarea" rows="2" placeholder="Answer"></textarea>
+            `;
+            faqContainer.appendChild(faqItem);
+        }
+
+        // Publish gig
+        function publishGig() {
+            const title = document.getElementById('gigTitle').value;
+            const category = document.getElementById('gigCategory').value;
+            const description = document.getElementById('gigDescription').value;
+            
+            if (!title || !category || !description) {
+                alert('Please fill in all required fields (marked with *)');
+                return;
+            }
+            
+            if (uploadedFiles.length === 0) {
+                alert('Please upload at least one image for your gig');
+                return;
+            }
+            
+            // Simulate publishing
+            alert('🎉 Congratulations! Your gig has been published successfully!\n\nYour gig is now live and ready to receive orders.');
+            
+            // Here you would normally send the data to your backend
+            console.log({
+                title,
+                category,
+                description,
+                tags,
+                images: uploadedFiles,
+                // ... other data
+            });
+        }
+
+        // Search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchBtn.addEventListener('click', () => {
+            if (searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchBar.value.trim()) {
+                alert(`Searching for: ${searchBar.value}`);
+            }
+        });
+    </script>
+</body>
+</html>
