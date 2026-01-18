@@ -1147,17 +1147,17 @@
         }, 600);
         
         // Button action simulation
-       // const buttonText = this.textContent;
-       // showMessage(`${buttonText} clicked! Feature coming soon.`, 'info');
-      //});
-    //});
+       const buttonText = this.textContent;
+       showMessage(`${buttonText} clicked! Feature coming soon.`, 'info');
+      });
+    });
 
     // Message display function (theme-aware)
-    //function showMessage(message, type) {
-    //  const existingMsg = document.querySelector('.message');
-  //    if (existingMsg) {
-      //existingMsg.remove();
-      //}
+    function showMessage(message, type) {
+    const existingMsg = document.querySelector('.message');
+    if (existingMsg) {
+      existingMsg.remove();
+      }
       
       const msgDiv = document.createElement('div');
       msgDiv.className = `message ${type}`;
@@ -1310,6 +1310,7 @@
 </body>
 
 </html>
+
 
 
 
