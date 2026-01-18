@@ -1146,7 +1146,29 @@
           ripple.remove();
         }, 600);
         
-        
+        // Message display function (theme-aware)
+    function showMessage(message, type) {
+      const existingMsg = document.querySelector('.message');
+      if (existingMsg) {
+        existingMsg.remove();
+      }
+      
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${type}`;
+      msgDiv.textContent = message;
+      msgDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        z-index: 10000;
+        max-width: 300px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        animation: slideInRight 0.3s ease-out;
+      `;
   
       
       // Set background color based on type and theme
@@ -1283,6 +1305,7 @@
 </body>
 
 </html>
+
 
 
 
