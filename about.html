@@ -817,8 +817,8 @@
         <h2>Ready to Start Your Journey?</h2>
         <p>Join thousands of freelancers and businesses who trust LanceFree for their project needs.</p>
         <div class="cta-buttons">
-          <a href="registerpage.html" class="btn btn-primary">Join as Freelancer</a>
-          <a href="Homepage.html" class="btn btn-secondary">Hire Talent</a>
+          <a href="index.html" class="btn btn-primary">Join as Freelancer</a>
+          <a href="index.html" class="btn btn-secondary">Hire Talent</a>
         </div>
       </div>
     </section>
@@ -1146,7 +1146,13 @@
           ripple.remove();
         }, 600);
         
-        // Message display function (theme-aware)
+        // Button action simulation
+        const buttonText = this.textContent;
+        showMessage(`${buttonText} clicked! Feature coming soon.`, 'info');
+      });
+    });
+
+    // Message display function (theme-aware)
     function showMessage(message, type) {
       const existingMsg = document.querySelector('.message');
       if (existingMsg) {
@@ -1169,7 +1175,6 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         animation: slideInRight 0.3s ease-out;
       `;
-  
       
       // Set background color based on type and theme
       const isDark = document.body.classList.contains('dark');
@@ -1305,9 +1310,6 @@
 </body>
 
 </html>
-
-
-
 
 
 
